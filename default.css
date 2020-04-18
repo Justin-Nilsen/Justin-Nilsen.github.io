@@ -261,7 +261,7 @@
 		display: inline-block;
 		margin-top: 2em;
 		padding: 1em 2em 1em 2em;
-		background: #67128F;
+		background: #b0bbcf;
 		border-radius: 8px;
 		letter-spacing: 0.20em;
 		line-height: 1.8em;
@@ -275,7 +275,7 @@
 	.button:before
 	{
 		display: inline-block;
-		background: #8DCB89;
+		background: #b0bbcf;
 		margin-right: 1em;
 		width: 40px;
 		height: 40px;
