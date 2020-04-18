@@ -288,7 +288,7 @@
 	.button-small
 	{
 		padding: 0.9em 2em;
-		background: #67128F;
+		background: #b0bbcf;
 		border-radius: 5px;
 		line-height: 1.8em;
 		font-size: 1em;
@@ -406,7 +406,7 @@
 	
 	#menu .current_page_item a
 	{
-		background: #67128F;
+		background: #b0bbcf;
 		border-radius: 8px;
 		color: #FFF;
 	}
@@ -426,12 +426,14 @@
 
 	#wrapper1
 	{
-		background: #242424;
+		/*background: #242424;*/
+		background: #b0bbcf;
 	}
 
 	#wrapper2
 	{
-		background: #EDEDED;
+		/*background: #EDEDED;*/
+		background: #b0bbcf
 	}
 
 	#wrapper3
@@ -649,7 +651,7 @@
 		width: 150px;
 		height: 150px;
 		border-radius: 100px;
-		border: 6px solid #67128F;
+		border: 6px solid #b0bbcf;
 		text-align: center;
 		color: #FFF;
 		
