@@ -261,7 +261,7 @@
 		display: inline-block;
 		margin-top: 2em;
 		padding: 1em 2em 1em 2em;
-		background: #b0bbcf;
+		background: #363d40;
 		border-radius: 8px;
 		letter-spacing: 0.20em;
 		line-height: 1.8em;
@@ -275,7 +275,7 @@
 	.button:before
 	{
 		display: inline-block;
-		background: #b0bbcf;
+		background: #363d40;
 		margin-right: 1em;
 		width: 40px;
 		height: 40px;
@@ -288,7 +288,7 @@
 	.button-small
 	{
 		padding: 0.9em 2em;
-		background: #b0bbcf;
+		background: #363d40;
 		border-radius: 5px;
 		line-height: 1.8em;
 		font-size: 1em;
@@ -406,7 +406,7 @@
 	
 	#menu .current_page_item a
 	{
-		background: #b0bbcf;
+		background: #b30600;
 		border-radius: 8px;
 		color: #FFF;
 	}
