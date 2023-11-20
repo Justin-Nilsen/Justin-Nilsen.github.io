@@ -12103,7 +12103,8 @@ textarea.form-control-lg {
   }
 }
 body {
-  background-image: radial-gradient(at top right, #E0E7F4, #BECEEB, #93B1E1);
+  background-color: #dbe2f3;
+  /*background-image: radial-gradient(at top right, #E0E7F4, #BECEEB, #93B1E1);*/
   height: 100vh;
   /*background-image: linear-gradient(270deg, #E0E7F4, #BECEEB, #93B1E1);*/
   /*background-image: linear-gradient(90deg, #33b7e2, #5e62b0, #dc307c); */
