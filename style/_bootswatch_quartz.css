@@ -1,0 +1,17 @@
+/* Error: Undefined variable.
+ *   ,
+ * 7 | $body-bg-image: linear-gradient(90deg, shade-color($cyan, 10%), shade-color($purple, 10%), shade-color($pink, 5%)) !default;
+ *   |                                                    ^^^^^
+ *   '
+ *   _bootswatch_quartz.scss 7:52  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a   \2577 \a 7 \2502  $body-bg-image: linear-gradient(90deg, shade-color($cyan, 10%), shade-color($purple, 10%), shade-color($pink, 5%)) !default;\a   \2502                                                     ^^^^^\a   \2575 \a   _bootswatch_quartz.scss 7:52  root stylesheet";
+}
