@@ -1,0 +1,202 @@
+{
+  "data": {
+    "title": "CHAPTER_1",
+    "blocksData": [
+      {
+        "id": 0,
+        "text": "",
+        "subBlocks": [],
+        "linkTo": 1,
+        "position": {
+          "x": -343,
+          "y": -6
+        },
+        "blocktype": -1
+      },
+      {
+        "id": 1,
+        "text": "<div class=\"ql-editor\" contenteditable=\"true\"><h1>Chapter 1</h1><p>The rain hammered against the glass like it had a vendetta, the kind of storm that made Polaris feel alive in its chaos. Lightning turned the skyline into a strobe-lit battlefield, skyscrapers caught in sharp relief before fading back into the wet gloom. <span class=\"inline-code\">console.log('HAHA! It works!');</span>From the top floor of the Parallax Spire, <u>New Atraments</u> sprawled below, a fractured mosaic of neon advertisements, aircar trails, and glimmering towers. But tonight, it all felt too exposed. Too precarious.</p><p>Matoran sat at the bar, swirling a glass of amber liquor that hadn’t earned a single sip. The room felt wrong, charged like the air before a strike. A couple of executives—Syndicarian blue ties practically shouting their allegiances—sat in a corner booth, their conversation hushed but pointed. Across the room, a broad-shouldered man in a cheap suit was pretending to read his datapad, glancing up too often for comfort. And then there was the Eridani near the wall, their orange skin glowing faintly under the dim light. They sat alone, nursing a drink that looked expensive, their ceremonial blade resting just far enough out of reach to make a statement: <em>Don’t test me.</em></p><p>Matoran’s foot tapped against the bar rail, a steady rhythm that betrayed {his} nerves. The last time {he} met this source, the place had practically erupted. Private security from their corporation—<em>sent to make a point</em>—had swarmed the bar mid-conversation. Matoran barely made it out, ditching a back exit while the source had to fight their way through. Tonight wasn’t going to be any cleaner if they weren’t careful.</p><p>The door hissed open behind {him}, a whisper against the storm outside. Matoran didn’t turn immediately, catching the distorted reflection in the mirrored liquor shelves. A figure stepped in, rain dripping from a long black coat. Hood up, face hidden. They scanned the room, deliberate, methodical.</p></div><div class=\"ql-tooltip ql-hidden\"><a class=\"ql-preview\" rel=\"noopener noreferrer\" target=\"_blank\" href=\"about:blank\"></a><input type=\"text\" data-formula=\"e=mc^2\" data-link=\"https://quilljs.com\" data-video=\"Embed URL\"><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>",
+        "subBlocks": [
+          {
+            "text": "I’d rather not jump to conclusions just yet. Can I get an overview of the facts?",
+            "linkTo": 7
+          },
+          {
+            "text": "First of all, take that pin off.  Right now.",
+            "linkTo": 4
+          },
+          {
+            "text": "Right, so we've got a radical, a bleeding heart, and a bloody mess. What am I missing here? Give me the cliff notes—I'm not in the mood for the full political briefing today.",
+            "linkTo": 6
+          }
+        ],
+        "linkTo": null,
+        "position": {
+          "x": 234,
+          "y": -171
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 3,
+        "text": "“We found him here—looks like he was killed in the middle of something. No signs of forced entry, though. This wasn’t a robbery. No personal belongings gone, nothing disturbed. But he’s got a wound to the neck, likely from a cutting tool of some kind, and it’s a clean job. Whoever did this knew what they were doing.” The detective glanced at the victim’s body, a frown crossing his face. “No defensive wounds either. Looks like he knew his killer.”\n\nMatoran nodded, taking it all in, his mind already running through the possibilities. A calculated murder, no doubt. Clean, methodical, but why here? Why now?",
+        "subBlocks": [
+          {
+            "text": "Anything else?",
+            "linkTo": 5
+          }
+        ],
+        "linkTo": null,
+        "position": {
+          "x": 3744,
+          "y": 560
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 4,
+        "text": "\"First of all, take that pin off.  Right now.\" Matoran said evenly, his voice low but firm. His words seemed to hang in the air, heavier than the rain tapping against the window.\n\nThe room stilled, the murmur of voices ceasing as everyone turned to look at him. The Syndicarian detective blinked, a flicker of surprise passing across his face, before he gave a short, almost dismissive laugh.\n\n\"Excuse me?\" the man replied, his voice colder now, a mix of disbelief and growing irritation. \"You want me to—what? Take off my pin?\"",
+        "subBlocks": [
+          {
+            "text": "This isn't a political game, Detective. Not here, not now. You can save the opinions for after hours.",
+            "linkTo": 8
+          },
+          {
+            "text": "Take. It. Off.",
+            "linkTo": 9,
+            "condition": ""
+          },
+          {
+            "text": "I’m not a fan of Syndicarians in the first place. And if you think this case is some kind of political statement, I’d appreciate it if you didn’t wear that symbol while you’re in here.",
+            "linkTo": 10
+          }
+        ],
+        "linkTo": null,
+        "position": {
+          "x": 831,
+          "y": 950
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 5,
+        "text": "“Anything about the scene we should know? People he was involved with?” Matoran asked, his voice low, carefully probing.\n\nThe Syndicarian glanced back at him, almost wary, as if Matoran had just ventured into a territory he wasn’t supposed to. “We’re working on that. His social media’s active—he was all over the place, rallying for Eridani rights, pushing against the AU. You know the type.” The detective let the words hang in the air, but Matoran felt the unspoken edge—the political context was as dangerous as it was unavoidable.\n\nMatoran paused, letting the weight of the situation settle. There were too many factions with reasons to be involved in this. But someone, somewhere, had made a statement. And it was his job to figure out which message it was.\n\n=== END ===",
+        "subBlocks": [],
+        "linkTo": null,
+        "position": {
+          "x": 4299,
+          "y": 783
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 6,
+        "text": "Matoran smirked, his fingers tapping against the datapad with practiced nonchalance. He glanced back at the Syndicarian detective, his eyes narrowing slightly. \"Right, so we've got a radical, a bleeding heart, and a bloody mess. What am I missing here? Give me the cliff notes—I'm not in the mood for the full political briefing today.\" His tone was dry, almost too casual, as if he were more interested in the rain outside than the man standing in front of him.\n\nThe Syndicarian detective didn’t seem to appreciate the tone, but he shrugged, folding his arms. “Right,” he muttered, rubbing his stubbled chin. “Velk was an Eridani agitator. Public speeches, rallies, the whole deal. Slit throat, no witnesses, no clear motive—except for maybe everything he stood for.”",
+        "subBlocks": [],
+        "linkTo": 3,
+        "position": {
+          "x": 841,
+          "y": 498
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 7,
+        "text": "<div class=\"ql-editor\" contenteditable=\"true\"><p>“I don’t know,” Matoran replied, his voice steady, though the tension of the room was palpable. “But I’d rather not jump to conclusions just yet. Can I get an overview of the facts?”</p></div><div class=\"ql-tooltip ql-hidden\"><a class=\"ql-preview\" rel=\"noopener noreferrer\" target=\"_blank\" href=\"about:blank\"></a><input type=\"text\" data-formula=\"e=mc^2\" data-link=\"https://quilljs.com\" data-video=\"Embed URL\"><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>",
+        "subBlocks": [],
+        "linkTo": 3,
+        "position": {
+          "x": 1038,
+          "y": 96
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 8,
+        "text": "Matoran nodded slowly, his expression unwavering. \"This isn't a political game, Detective. Not here, not now. You can save the opinions for after hours. I don't care what your stance is, but in this room, we work the case—no agendas.\"\n\nThe tension in the air grew thicker, and for a moment, the other officers seemed to hold their breath. The detective eyed Matoran for a long moment, his fingers twitching near his collar. Finally, with a grunt, he reached up and unpinned the Syndicarian insignia from his coat, slipping it into his pocket with a sharp motion. His eyes, though, never left Matoran’s face.\n\nMatoran exhaled quietly and turned his attention back to the body, feeling the weight of the room return to normal.",
+        "subBlocks": [],
+        "linkTo": 13,
+        "position": {
+          "x": 1479,
+          "y": 898
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 9,
+        "text": "“Take. It. Off.” Matoran repeated, his voice barely rising above the murmur of the rain, but each word was delivered with precision. He wasn’t going to waste time with games or pleasantries. Not here, not now.\n\nThe tension in the air grew thicker, and for a moment, the other officers seemed to hold their breath. The detective eyed Matoran for a long moment, his fingers twitching near his collar. Finally, with a grunt, he reached up and unpinned the Syndicarian insignia from his coat, holding it in his palm with a final, resentful flick of his wrist. Matoran watched him do it, his gaze cold and unsympathetic.\n\n“Good,” Matoran said, his voice now calmer, almost a whisper, but there was something in it that suggested the conversation was far from over.",
+        "subBlocks": [],
+        "linkTo": 13,
+        "position": {
+          "x": 1476,
+          "y": 1301
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 10,
+        "text": "He met the Syndicarian’s eyes without flinching, his jaw set. “I’m not a fan of Syndicarians in the first place. And if you think this case is some kind of political statement, I’d appreciate it if you didn’t wear that symbol while you’re in here.”\n\nThe detective blinked, clearly taken aback by the directness, but Matoran didn’t waver. He had no patience for the biases that came with that pin, especially not when the victim’s life was nothing more than fodder for someone else’s agenda.\n\nThe tension in the air grew thicker, and for a moment, the other officers seemed to hold their breath. The detective eyed Matoran for a long moment, his fingers twitching near his collar. Finally, with a grunt, he reached up and unpinned the Syndicarian insignia from his coat, holding it in his palm with a final, resentful flick of his wrist. Matoran watched him do it, his gaze cold and unsympathetic.\n\n“Good,” Matoran said, his voice now calmer, almost a whisper, but there was something in it that suggested the conversation was far from over.",
+        "subBlocks": [],
+        "linkTo": 13,
+        "position": {
+          "x": 1480,
+          "y": 1673
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 11,
+        "text": "Matoran’s eyes flicked from the discarded pin back to the detective, his impatience rising. “Overview,” he demanded, his voice sharp. “I don’t have time for your politics. What happened here?” He gestured toward the body with a quick motion, his focus unshifting.",
+        "subBlocks": [],
+        "linkTo": 14,
+        "position": {
+          "x": 2756,
+          "y": 1083
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 12,
+        "text": "Matoran’s eyes flicked back to the body, then to the Syndicarian detective, his voice steady. “Give me an overview. What do we know?”",
+        "subBlocks": [],
+        "linkTo": 14,
+        "position": {
+          "x": 2736,
+          "y": 1388
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 13,
+        "text": "",
+        "subBlocks": [
+          {
+            "text": "Overview. I don’t have time for your politics. What happened here?",
+            "linkTo": 11
+          },
+          {
+            "text": "Give me an overview. What do we know?",
+            "linkTo": 12
+          }
+        ],
+        "linkTo": null,
+        "position": {
+          "x": 2156,
+          "y": 1122
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 14,
+        "text": "The Syndicarian detective’s eyes flicked briefly to the others in the room, his posture stiffening in a silent challenge before he gave a begrudging nod. \n\n\"Jarin Velk, male, 29. Activist, agitator, whatever you want to call him. We’ve got his background, and he’s been involved in a number of protests, some more... intense than others. The kind that ruffle feathers in high places.\"",
+        "subBlocks": [],
+        "linkTo": 3,
+        "position": {
+          "x": 3220,
+          "y": 230
+        },
+        "blocktype": 0
+      }
+    ]
+  }
+}

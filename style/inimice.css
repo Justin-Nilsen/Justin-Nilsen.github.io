@@ -1,0 +1,128 @@
+#revealed-container * {
+    transition: 0.1s;
+}
+
+#revealed-container {
+    max-height: 90vh;
+    /*overflow-y: auto;*/
+    overflow-y: scroll;
+    transition: 0.2s ease;
+    scroll-behavior: smooth;
+    padding-top: 5vh;
+    padding-bottom: 35vh;
+}
+/*
+1943, 373, 2316 - with padding
+1819, 373, 2192 - without padding
+*/
+.ql-editor {
+    /*position: absolute;*/
+    transition: 2s ease;
+    /*margin-top: auto;*/
+}
+
+#rootContainer {
+    width: 100%;
+    height: 90vh;
+}
+
+@font-face {
+    font-family: 'LinLibertine_R';
+    src: url('../resources/fonts/LinLibertine_R.ttf');
+}
+
+.dialogButton {
+    background-color: rgb(17, 17, 17);
+    color: #FFE588;
+    width: 100%;
+    border: 0px;
+    font-family: 'LinLibertine_R';
+    text-align: left;
+    padding: 5px;
+    padding-left: 12px;
+    transition: 0.2s;
+}
+
+.dialogButton:hover{
+    background-color: #2C2A25;
+}
+
+#bottom-divider {
+    position: absolute;
+    width: 100%;
+    min-height: 50px;
+    margin-bottom: -3px;
+    background: linear-gradient(
+        to top,
+        rgba(17, 17, 17, 1),
+        rgba(17, 17, 17, 0)
+    );
+    transform: translate(0px, -45px);
+}
+
+#top-divider {
+    position: absolute;
+    width: 100%;
+    min-height: 50px;
+    background: linear-gradient(
+        to bottom,
+        rgba(17, 17, 17, 1),
+        rgba(17, 17, 17, 0)
+    );
+}
+
+#divider {
+    width: 100%;
+    min-height: 30px;
+    margin-bottom: -1px;
+    background: linear-gradient(
+        to top,
+        rgba(17, 17, 17, 1),
+        rgba(17, 17, 17, 0)
+    );
+}
+#actualButtons {
+    height: calc(45vh - 31px);
+    width: 100%;
+    background-color: #111111;
+    overflow-y: scroll;
+}
+
+#dialogButtons {
+    min-height: 45vh;
+    width: 100%;
+    display: none;
+    /*background-color: #111111;*/
+    transform: translate(0px, -35vh);
+}
+
+body {
+    max-height: 100vh;
+    min-height: 100vh;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin: auto;
+    width: clamp(500px, 70%, 100%);
+    max-width: 100%;
+    background-color: #111111;
+    color: #ECECEC;
+    font-family: 'LinLibertine_R';
+}
+
+.ql-editor p, .ql-editor h1, .ql-editor h2,
+.ql-editor h3, .ql-editor h4,
+.ql-editor h5, .ql-editor h6, .ql-editor ul, 
+.ql-editor ol {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.ql-font-arial {
+    font-family: 'Arial';
+}
+
+.ql-font-libertine {
+    font-family: 'LinLibertine_R';
+}

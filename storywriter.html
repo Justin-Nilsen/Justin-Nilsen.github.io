@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style/bootstrap-storywriter.css">
+  <link rel="stylesheet" href="style/quill.snow.css">
+  <link rel="stylesheet" href="style/storywriter.css">
+  <script src="js/quill.js"></script>
+  <script src="js/storywriter.js"></script>
+  <title>Storywriter</title>
+</head>
+<body>
+<div id="toolbar">
+  <input type="text" class="form-control title-input" placeholder="Project Title" id="titleInput">
+  <button id="centerButton" class="btn btn-secondary">Reset View</button>
+  <button id="exportButton" class="btn btn-secondary">Save</button>
+  <input type="file" id="importInput" accept=".json" style="display: none;">
+  <button id="importButton" class="btn btn-secondary">Open</button>
+</div>
+<div id="canvasContainerContainer">
+  <div id="canvasContainer">
+      <svg id="svgCanvas">
+        <!-- Arrowhead Definition -->
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7"
+                  refX="10" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="gray" />
+          </marker>
+          <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+            <path d="M 25 0 L 0 0 0 25" fill="none" stroke="#2e2e2e" stroke-width="1" />
+          </pattern>
+        </defs>
+        <rect x=-25000 y=-25000 width="50000px" height="50000px" fill="url(#grid)" />
+      </svg>
+    <!-- Blocks will be added here -->
+  </div>
+</div>
+</body>
+</html>
