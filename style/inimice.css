@@ -10,6 +10,7 @@
     scroll-behavior: smooth;
     padding-top: 5vh;
     padding-bottom: 35vh;
+    padding-right: 25px;
 }
 /*
 1943, 373, 2316 - with padding
@@ -60,17 +61,6 @@
     transform: translate(0px, -45px);
 }
 
-#top-divider {
-    position: absolute;
-    width: 100%;
-    min-height: 50px;
-    background: linear-gradient(
-        to bottom,
-        rgba(17, 17, 17, 1),
-        rgba(17, 17, 17, 0)
-    );
-}
-
 #divider {
     width: 100%;
     min-height: 30px;
@@ -93,12 +83,12 @@
     width: 100%;
     display: none;
     /*background-color: #111111;*/
-    transform: translate(0px, -35vh);
+    transform: translate(0px, -36vh);
 }
 
 body {
-    max-height: 100vh;
-    min-height: 100vh;
+    max-height: 95vh;
+    min-height: 95vh;
     padding-top: 0px;
     padding-bottom: 0px;
     padding-left: 25px;

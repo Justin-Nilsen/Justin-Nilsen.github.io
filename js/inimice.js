@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       });
 
-      revealText(blocks[blocks[0].linkTo]['text'], 'revealed-container', 1);
+      revealText(blocks[blocks[0].linkTo]['text'], 'revealed-container', 30);
     }, 0);
   }
 
