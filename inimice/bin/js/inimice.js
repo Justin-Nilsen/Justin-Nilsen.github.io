@@ -124,6 +124,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   */
 
+  const dialogOptionsPanel = document.getElementById('dialogButtons');
+  const container = document.getElementById('revealed-container');
+  const actualButtons = document.getElementById('actualButtons');
+  const child = document.getElementsByClassName('ql-editor')[0];
+
 
   async function revealText(htmlString, revealTargetId, speed) {
 
@@ -196,10 +201,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
-    const dialogOptionsPanel = document.getElementById('dialogButtons');
-    const container = document.getElementById('revealed-container');
-    const child = document.getElementsByClassName('ql-editor')[0];
-
     let isUserScrolling = false;
 
     container.addEventListener('scroll', () => {
@@ -269,6 +270,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start processing from the reference container and build into the cloneContainer
     await processNodesSequentially(Array.from(referenceContainer.childNodes), cloneContainer);
     //container.style.maxHeight = '60vh';
+
     dialogOptionsPanel.style.display = 'block';
     //container.scrollTop = container.scrollHeight;
 
@@ -294,10 +296,29 @@ document.addEventListener('DOMContentLoaded', function() {
       importedData.forEach(blockData => {
         blocks[blockData.id] = blockData;
         blockData.subBlocks.forEach((subBlockData, index) => {
+          /*
+          const butt = document.createElement('button');
+          butt.classList.add("dialogButton");
+          butt.innerText = subBlockData.text;
+          actualButtons.appendChild(butt);
+          */
           if (subBlockData['linkTo'] !== null) {
             //subBlockData.linkTo // number
           }
         });
+      });
+
+      blocks[blocks[0].linkTo].subBlocks.forEach((subBlockData, index) => {
+        const butt = document.createElement('button');
+        butt.classList.add("dialogButton");
+        butt.addEventListener("click", function() {
+          dialogOptionsPanel.style.display = 'none';
+          revealText(blocks[subBlockData.linkTo]['text'], 'revealed-container', 30);
+
+        });
+        //butt.onclick.addEventListener;
+        butt.innerText = subBlockData.text;
+        actualButtons.appendChild(butt);
       });
 
       revealText(blocks[blocks[0].linkTo]['text'], 'revealed-container', 30);
