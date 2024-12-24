@@ -224,8 +224,8 @@
         "subBlocks": [],
         "linkTo": 37,
         "position": {
-          "x": 4823,
-          "y": 737
+          "x": 4923,
+          "y": 783
         },
         "blocktype": 0
       },
@@ -244,10 +244,10 @@
         "id": 35,
         "text": "<p>\"Thanks,\" Matoran murmured, patting his coat pockets to check that his ID was still there.  \"Have a good one.\"</p>",
         "subBlocks": [],
-        "linkTo": null,
+        "linkTo": 33,
         "position": {
-          "x": 4200,
-          "y": 1060
+          "x": 4192,
+          "y": 1124
         },
         "blocktype": 0
       },
