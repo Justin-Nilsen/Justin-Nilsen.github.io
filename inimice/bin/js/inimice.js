@@ -283,6 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let readingSpeed = speeds[speedIndex];
 
   let readingSpeedSlider = document.getElementById('readingSpeedSlider');
+  let readingSpeedSliderContainer = document.getElementById('slider_container');
   let name_input_panel = document.getElementById('input_panel');
   let name_input_button = document.getElementById('name_input_button');
   let player_name_input = document.getElementById('player_name_input');
@@ -377,22 +378,46 @@ document.addEventListener('DOMContentLoaded', function() {
     return new Promise((resolve) => {
       actualButtons.replaceChildren();
 
+      let blocksGenerated = 0;
       blocks[currentBlockId].subBlocks.forEach((subBlockData, index) => {
-        const butt = document.createElement('button');
-        butt.classList.add("dialogButton");
-        butt.addEventListener("click", function() {
-          dialogOptionsPanel.style.display = 'none';
-          currentBlockId = subBlockData.linkTo;
+
+        let doShowSubblock = true;
+
+        if (subBlockData.hasOwnProperty("condition") && subBlockData.condition.trim() !== ""){
+          let condition = eval(subBlockData.condition);
+          if (!condition){
+            doShowSubblock = false;
+          } else {
+            doShowSubblock = true;
+          }
+        }
+        
+        if (doShowSubblock){
+          const butt = document.createElement('button');
+          butt.classList.add("dialogButton");
+          butt.addEventListener("click", function() {
+            dialogOptionsPanel.style.display = 'none';
+            currentBlockId = subBlockData.linkTo;
+            resolve(currentBlockId);
+          });
+          butt.innerHTML = subBlockData.text;
+          actualButtons.appendChild(butt);
+          blocksGenerated++;
+        }
+        if (blocksGenerated <= 0){
+          currentBlockId = blocks[currentBlockId].linkTo;
           resolve(currentBlockId);
-        });
-        butt.innerHTML = subBlockData.text;
-        actualButtons.appendChild(butt);
+        }
       });
       dialogOptionsPanel.style.display = 'block';
     });
   }
 
   function Begin(){
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      readingSpeedSliderContainer.style.display('block');
+    }
     importFromJSON(decodeURIComponent(storyGraphData));
   }
 
