@@ -416,7 +416,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function Begin(){
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
-      readingSpeedSliderContainer.style.display('block');
+      readingSpeedSliderContainer.style.display = 'block';
     }
     importFromJSON(decodeURIComponent(storyGraphData));
   }
