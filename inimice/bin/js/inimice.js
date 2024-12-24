@@ -1,3 +1,5 @@
+//const { read } = require("original-fs");
+
 // Regex patterns
 const alphabets = "([A-Za-z])";
 const prefixes = "(Mr|St|Mrs|Ms|Dr)[.]";
@@ -128,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const container = document.getElementById('revealed-container');
   const actualButtons = document.getElementById('actualButtons');
 
-  async function revealText(htmlString, revealTargetId, speed) {
+  async function revealText(htmlString, revealTargetId) {
 
     // Parse the HTML string
     const parser = new DOMParser();
@@ -153,9 +155,9 @@ document.addEventListener('DOMContentLoaded', function() {
     revealContainer.appendChild(cloneContainer);
 
     // Define extra delays
-    const clauseDelay = speed * 9;    // Delay after finishing a clause
-    const sentenceDelay = speed * 15; // Delay after finishing a sentence
-    const paragraphDelay = speed * 25;
+    const clauseDelay = 9;    // Delay after finishing a clause
+    const sentenceDelay = 15; // Delay after finishing a sentence
+    const paragraphDelay = 25;
         
     /*
     char: 0.01
@@ -164,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
     */
 
       // Reveal a text node by splitting into sentences/clauses and revealing gradually
-    async function revealTextNode(originalTextNode, parentInClone, speed) {
+    async function revealTextNode(originalTextNode, parentInClone) {
       let text = originalTextNode.nodeValue;
       const newTextNode = document.createTextNode('');
       parentInClone.appendChild(newTextNode);
@@ -175,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
       let sentences = splitIntoSentences(text);
       if (sentences.length === 0) {
           // If no sentences, just reveal as is
-          await revealString(newTextNode, text, speed);
+          await revealString(newTextNode, text);
           return;
       }
 
@@ -190,14 +192,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
           for (let cIdx = 0; cIdx < clauses.length; cIdx++) {
               let clause = clauses[cIdx];
-              await revealString(newTextNode, clause, speed);
+              await revealString(newTextNode, clause);
               if (cIdx < clauses.length - 1) {
-                  await delay(clauseDelay);
+                  await delay(readingSpeed * clauseDelay);
               }
           }
 
           if (sIdx < sentences.length - 1) {
-              await delay(sentenceDelay);
+              await delay(readingSpeed * sentenceDelay);
           }
       }
     }
@@ -213,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Reveal a string character by character inside a given text node
-    function revealString(textNode, str, speed) {
+    function revealString(textNode, str) {
       return new Promise(resolve => {
         let i = 0;
         function revealLetter() {
@@ -223,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!isUserScrolling) {
               container.scrollTop = container.scrollHeight;
             }
-            setTimeout(revealLetter, speed);
+            setTimeout(revealLetter, readingSpeed);
           } else {
             resolve();
           }
@@ -241,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
       for (const originalNode of originalNodes) {
         if (originalNode.nodeType === Node.TEXT_NODE) {
           // Reveal text in a newly created text node
-          await revealTextNode(originalNode, targetParent, speed);
+          await revealTextNode(originalNode, targetParent);
         } else if (originalNode.nodeType === Node.ELEMENT_NODE) {
 
           if (originalNode.tagName && originalNode.tagName.toLowerCase() == 'span' && originalNode.className == 'inline-code'){
@@ -262,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
           originalNode.tagName && originalNode.tagName.toLowerCase() === 'h4' ||
           originalNode.tagName && originalNode.tagName.toLowerCase() === 'li'
           ) {
-            await delay(paragraphDelay);
+            await delay(readingSpeed * paragraphDelay);
           }
         }
       }
@@ -275,6 +277,52 @@ document.addEventListener('DOMContentLoaded', function() {
   function substituteVariables(text){
     return text.replace(/Matoran/g, playerName);
   }
+
+  let speedIndex = 1;
+  let speeds = [50, 40, 30, 20, 10, 7, 5, 2, 1];
+  let readingSpeed = speeds[speedIndex];
+
+  let readingSpeedSlider = document.getElementById('readingSpeedSlider');
+  let name_input_panel = document.getElementById('input_panel');
+  let name_input_button = document.getElementById('name_input_button');
+  let player_name_input = document.getElementById('player_name_input');
+
+  function load_name_values_and_begin(event){
+    event.preventDefault();
+    playerName = player_name_input.value;
+    name_input_panel.style.display = "none";
+    Begin();
+  }
+
+  name_input_button.addEventListener('click', (event) => {
+    load_name_values_and_begin(event);
+  });
+
+  player_name_input.addEventListener("submit", load_name_values_and_begin);
+
+  readingSpeedSlider.addEventListener('input', (event) => {
+    speedIndex = event.target.value;
+    readingSpeed = speeds[speedIndex];
+  });
+
+  // SPEED BUTTON
+  /* speedIndex = (speedIndex + 1) % speeds.length; */
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowRight') {
+      speedIndex = (speedIndex + 1) < speeds.length ? speedIndex + 1 : speedIndex;
+      readingSpeed = speeds[speedIndex];
+      readingSpeedSlider.value = speedIndex;
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') {
+      speedIndex = (speedIndex - 1) >= 0 ? speedIndex - 1 : speedIndex;
+      readingSpeed = speeds[speedIndex];
+      readingSpeedSlider.value = speedIndex;
+    }
+  });
 
   let currentBlockId = 0;
   let blocks = {};
@@ -315,7 +363,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (blocks[currentBlockId].blocktype == 1){
         eval(blocks[currentBlockId]['text']);
       } else if (blocks[currentBlockId].blocktype == 0){
-        await revealText(blocks[currentBlockId]['text'], 'revealed-container', 30);
+        await revealText(blocks[currentBlockId]['text'], 'revealed-container', readingSpeed);
       }
       if (blocks[currentBlockId].subBlocks.length > 0){
         newBlockId = await waitForButtonPress();
@@ -344,7 +392,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  setTimeout(() => {
+  function Begin(){
     importFromJSON(decodeURIComponent(storyGraphData));
+  }
+
+  setTimeout(() => {
+    // WAIT FOR INPUT
+    //importFromJSON(decodeURIComponent(storyGraphData));
   }, 50);
 });

@@ -12,6 +12,21 @@
     padding-bottom: 35vh;
     padding-right: 25px;
 }
+
+#input_panel {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#slider_container {
+    display: none;
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    background-color: #111111;
+}
 /*
 1943, 373, 2316 - with padding
 1819, 373, 2192 - without padding
@@ -80,10 +95,6 @@
     padding-right: 25px;
 }
 
-body {
-    overflow: hidden;
-}
-
 
 #dialogButtons {
     min-height: 45vh;
@@ -100,6 +111,7 @@ body {
     padding-bottom: 0px;
     padding-left: 25px;
     padding-right: 25px;
+    overflow: hidden;
     margin: auto;
     width: clamp(500px, 70%, 100%);
     max-width: 100%;

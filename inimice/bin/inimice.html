@@ -13,13 +13,20 @@
     <link rel="stylesheet" href="style/inimice.css">
 </head>
 <body>
-    <!--<div id="top-divider"></div>-->
-    <!--
-    <input type="file" id="importInput" accept=".json" style="display: none;">
-    <button id="importButton" class="btn btn-secondary">Import HTML</button>
-    <label for="exampleInputEmail1" class="form-label mt-4">Player Name</label>
-    <input type="email" class="form-control" id="playerNameInput1" aria-describedby="playerName" placeholder="Enter player name">
--->
+
+    <div id="slider_container" style="padding: 10px;">
+        <input type="range" min="0" max="8" step="1" class="form-range" id="readingSpeedSlider">
+    </div>
+    <form id="input_panel">
+        <label class="form-label mt-4">Player Name:</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="player_name_input" placeholder="Enter player name...">
+            <button class="btn btn-secondary" type="submit" id="name_input_button">Button</button>
+        </div>
+    </form>
+    
+
+
         <div id="revealed-container">
         </div>
         <div id="dialogButtons">
