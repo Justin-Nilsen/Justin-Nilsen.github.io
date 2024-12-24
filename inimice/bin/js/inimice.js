@@ -127,19 +127,18 @@ document.addEventListener('DOMContentLoaded', function() {
   const dialogOptionsPanel = document.getElementById('dialogButtons');
   const container = document.getElementById('revealed-container');
   const actualButtons = document.getElementById('actualButtons');
-  const child = document.getElementsByClassName('ql-editor')[0];
-
 
   async function revealText(htmlString, revealTargetId, speed) {
 
     // Parse the HTML string
     const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlString, 'text/html');
-    const referenceContainer = doc.querySelector('.ql-editor');
+    const doc = parser.parseFromString('<div id="textContainer">' + htmlString + '</div>', 'text/html');
+
+    const referenceContainer = doc.querySelector('#textContainer');
 
     // Check if the container was found
     if (!referenceContainer) {
-      console.error("No #text-container found in the provided HTML string.");
+      console.error("No #textContainer found in the provided HTML string.");
       return;
     }
 
@@ -166,10 +165,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Reveal a text node by splitting into sentences/clauses and revealing gradually
     async function revealTextNode(originalTextNode, parentInClone, speed) {
-      const text = originalTextNode.nodeValue;
+      let text = originalTextNode.nodeValue;
       const newTextNode = document.createTextNode('');
       parentInClone.appendChild(newTextNode);
 
+    
+      text = substituteVariables(text);
       // Split text into sentences
       let sentences = splitIntoSentences(text);
       if (sentences.length === 0) {
@@ -269,17 +270,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Start processing from the reference container and build into the cloneContainer
     await processNodesSequentially(Array.from(referenceContainer.childNodes), cloneContainer);
-    //container.style.maxHeight = '60vh';
-
-    dialogOptionsPanel.style.display = 'block';
-    //container.scrollTop = container.scrollHeight;
-
   }
 
+  function substituteVariables(text){
+    return text.replace(/Matoran/g, playerName);
+  }
+
+  let currentBlockId = 0;
+  let blocks = {};
+  let inventory = [];
+  let playerName = "Joe";
 
   function importFromJSON(jsonData) {
-
-    blocks = {};
+    
     const parsedData = JSON.parse(jsonData);
     importedData = parsedData['data']['blocksData'];
 
@@ -293,43 +296,55 @@ document.addEventListener('DOMContentLoaded', function() {
     */
 
     setTimeout(() => {
+      
       importedData.forEach(blockData => {
         blocks[blockData.id] = blockData;
-        blockData.subBlocks.forEach((subBlockData, index) => {
-          /*
-          const butt = document.createElement('button');
-          butt.classList.add("dialogButton");
-          butt.innerText = subBlockData.text;
-          actualButtons.appendChild(butt);
-          */
-          if (subBlockData['linkTo'] !== null) {
-            //subBlockData.linkTo // number
-          }
-        });
+        //blockData.subBlocks.forEach((subBlockData, index) => { });
       });
 
-      blocks[blocks[0].linkTo].subBlocks.forEach((subBlockData, index) => {
+      mainloop(blocks);
+
+      //revealText(blocks[blocks[currentBlockId].linkTo]['text'], 'revealed-container', 30);
+      
+    }, 0);
+  }
+
+  async function mainloop() {
+    currentBlockId = blocks[currentBlockId].linkTo;
+    while(true){
+      if (blocks[currentBlockId].blocktype == 1){
+        eval(blocks[currentBlockId]['text']);
+      } else if (blocks[currentBlockId].blocktype == 0){
+        await revealText(blocks[currentBlockId]['text'], 'revealed-container', 30);
+      }
+      if (blocks[currentBlockId].subBlocks.length > 0){
+        newBlockId = await waitForButtonPress();
+      } else {
+        currentBlockId = blocks[currentBlockId].linkTo;
+      }
+    }
+  }
+
+  async function waitForButtonPress() {
+    return new Promise((resolve) => {
+      actualButtons.replaceChildren();
+
+      blocks[currentBlockId].subBlocks.forEach((subBlockData, index) => {
         const butt = document.createElement('button');
         butt.classList.add("dialogButton");
         butt.addEventListener("click", function() {
           dialogOptionsPanel.style.display = 'none';
-          revealText(blocks[subBlockData.linkTo]['text'], 'revealed-container', 30);
-
+          currentBlockId = subBlockData.linkTo;
+          resolve(currentBlockId);
         });
-        //butt.onclick.addEventListener;
-        butt.innerText = subBlockData.text;
+        butt.innerHTML = subBlockData.text;
         actualButtons.appendChild(butt);
       });
-
-      revealText(blocks[blocks[0].linkTo]['text'], 'revealed-container', 30);
-    }, 0);
+      dialogOptionsPanel.style.display = 'block';
+    });
   }
 
   setTimeout(() => {
-    //console.log(decodeURIComponent(storyGraphData));
     importFromJSON(decodeURIComponent(storyGraphData));
-    //console.log(document.getElementById('json_data'));
-    //importFromJSON(document.getElementById('json_data').textContent); // Adjust the speed as needed
   }, 50);
-  // Call the function with the ID of your original div, the ID of the reveal container, and the speed
 });

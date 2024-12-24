@@ -1,6 +1,6 @@
 {
   "data": {
-    "title": "CHAPTER_1",
+    "title": "Chapter_1",
     "blocksData": [
       {
         "id": 0,
@@ -9,191 +9,309 @@
         "linkTo": 1,
         "position": {
           "x": -343,
-          "y": -6
+          "y": -92
         },
         "blocktype": -1
       },
       {
         "id": 1,
-        "text": "<div class=\"ql-editor\" contenteditable=\"true\"><h1>Chapter 1</h1><p>The rain hammered against the glass like it had a vendetta, the kind of storm that made Polaris feel alive in its chaos. Lightning turned the skyline into a strobe-lit battlefield, skyscrapers caught in sharp relief before fading back into the wet gloom. <span class=\"inline-code\">console.log('HAHA! It works!');</span> From the top floor of the Parallax Spire, <u>New Atraments</u> sprawled below, a fractured mosaic of neon advertisements, aircar trails, and glimmering towers. But tonight, it all felt too exposed. Too precarious.</p><p>Matoran sat at the bar, swirling a glass of amber liquor that hadn’t earned a single sip. The room felt wrong, charged like the air before a strike. A couple of executives—Syndicarian blue ties practically shouting their allegiances—sat in a corner booth, their conversation hushed but pointed. Across the room, a broad-shouldered man in a cheap suit was pretending to read his datapad, glancing up too often for comfort. And then there was the Eridani near the wall, their orange skin glowing faintly under the dim light. They sat alone, nursing a drink that looked expensive, their ceremonial blade resting just far enough out of reach to make a statement: <em>Don’t test me.</em></p><p>Matoran’s foot tapped against the bar rail, a steady rhythm that betrayed {his} nerves. The last time {he} met this source, the place had practically erupted. Private security from their corporation—<em>sent to make a point</em>—had swarmed the bar mid-conversation. Matoran barely made it out, ditching a back exit while the source had to fight their way through. Tonight wasn’t going to be any cleaner if they weren’t careful.</p><p>The door hissed open behind {him}, a whisper against the storm outside. Matoran didn’t turn immediately, catching the distorted reflection in the mirrored liquor shelves. A figure stepped in, rain dripping from a long black coat. Hood up, face hidden. They scanned the room, deliberate, methodical.</p></div><div class=\"ql-tooltip ql-hidden\"><a class=\"ql-preview\" rel=\"noopener noreferrer\" target=\"_blank\" href=\"about:blank\"></a><input type=\"text\" data-formula=\"e=mc^2\" data-link=\"https://quilljs.com\" data-video=\"Embed URL\"><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>",
+        "text": "<h1>Chapter 1</h1><p>The rhythmic clatter of the subway car reverberated through the cabin, a mechanical symphony underscored by the occasional hiss of hydraulics as it sped along its magnetic rails. Matoran sat by the window, his reflection faintly visible against the rain-streaked cityscape of Polaris. Buildings stretched like glowing spires into the overcast sky, their tops obscured by low-hanging clouds. Neon advertisements flickered against the gloom, promising everything from synthetic luxuries to bio-enhancements, their colors blurring into streaks on the wet glass.</p><p>The car was neither packed nor sparse, a balanced hum of life. To Matoran's left, a group of Eridani teens with orange skin and sharp-pointed ears joked in a language he didn’t recognize. Across the aisle, an elderly Artakan man with silver hair and black-sclera eyes sat in serene silence, a soft glow reflecting off his data slate. A human woman, dressed in the deep blue of a sharp business suit, stood near the door, steadying herself against a pole, her attention fixed on a holographic projection of the stock market.</p><p>Matoran adjusted his jacket collar, pulling it closer against the residual chill that clung to him despite being indoors. The nerves about his interview at the Emissarium buzzed louder than the warmth of the heating vents could reach. His foot tapped an anxious rhythm on the floor. The Emissarium's administrative building was an imposing place, and securing a position there—any position—meant stability in a city where dreams often crumbled beneath its shining facade.</p><p>The subway car slowed, the brakes emitting a prolonged whine as the next station approached. More passengers streamed in, water droplets rolling off umbrellas and damp coats. A tall man with a weathered face, likely a miner or mechanic from one of the outer systems, took the seat directly across from Matoran. His clothes smelled faintly of grease and ozone, and his boots looked like they had seen too many cycles without repair.</p><p>The man leaned back, studying Matoran with the casual curiosity of someone looking for a way to pass the time. “You look sharp,” he said, his voice gravelly yet warm. “Got somewhere important to be?”</p><p>Matoran hesitated, his gaze flitting between the man and the rain beyond the window.</p>",
         "subBlocks": [
           {
-            "text": "I’d rather not jump to conclusions just yet. Can I get an overview of the facts?",
-            "linkTo": 7
-          },
-          {
-            "text": "First of all, take that pin off.  Right now.",
-            "linkTo": 4
-          },
-          {
-            "text": "Right, so we've got a radical, a bleeding heart, and a bloody mess. What am I missing here? Give me the cliff notes—I'm not in the mood for the full political briefing today.",
+            "text": "Yeah, I’ve got an interview at the Emissarium. Just hoping to make a good impression.",
             "linkTo": 6
-          }
-        ],
-        "linkTo": null,
-        "position": {
-          "x": 234,
-          "y": -171
-        },
-        "blocktype": 0
-      },
-      {
-        "id": 3,
-        "text": "“We found him here—looks like he was killed in the middle of something. No signs of forced entry, though. This wasn’t a robbery. No personal belongings gone, nothing disturbed. But he’s got a wound to the neck, likely from a cutting tool of some kind, and it’s a clean job. Whoever did this knew what they were doing.” The detective glanced at the victim’s body, a frown crossing his face. “No defensive wounds either. Looks like he knew his killer.”\n\nMatoran nodded, taking it all in, his mind already running through the possibilities. A calculated murder, no doubt. Clean, methodical, but why here? Why now?",
-        "subBlocks": [
-          {
-            "text": "Anything else?",
-            "linkTo": 5
-          }
-        ],
-        "linkTo": null,
-        "position": {
-          "x": 3744,
-          "y": 560
-        },
-        "blocktype": 0
-      },
-      {
-        "id": 4,
-        "text": "\"First of all, take that pin off.  Right now.\" Matoran said evenly, his voice low but firm. His words seemed to hang in the air, heavier than the rain tapping against the window.\n\nThe room stilled, the murmur of voices ceasing as everyone turned to look at him. The Syndicarian detective blinked, a flicker of surprise passing across his face, before he gave a short, almost dismissive laugh.\n\n\"Excuse me?\" the man replied, his voice colder now, a mix of disbelief and growing irritation. \"You want me to—what? Take off my pin?\"",
-        "subBlocks": [
-          {
-            "text": "This isn't a political game, Detective. Not here, not now. You can save the opinions for after hours.",
-            "linkTo": 8
           },
           {
-            "text": "Take. It. Off.",
-            "linkTo": 9,
-            "condition": ""
+            "text": "Nah, I just dress like this for subway rides. Gotta keep things interesting.",
+            "linkTo": 11
           },
           {
-            "text": "I’m not a fan of Syndicarians in the first place. And if you think this case is some kind of political statement, I’d appreciate it if you didn’t wear that symbol while you’re in here.",
-            "linkTo": 10
+            "text": "Why do you ask? You recruiting?",
+            "linkTo": 13
           }
         ],
         "linkTo": null,
         "position": {
-          "x": 831,
-          "y": 950
-        },
-        "blocktype": 0
-      },
-      {
-        "id": 5,
-        "text": "“Anything about the scene we should know? People he was involved with?” Matoran asked, his voice low, carefully probing.\n\nThe Syndicarian glanced back at him, almost wary, as if Matoran had just ventured into a territory he wasn’t supposed to. “We’re working on that. His social media’s active—he was all over the place, rallying for Eridani rights, pushing against the AU. You know the type.” The detective let the words hang in the air, but Matoran felt the unspoken edge—the political context was as dangerous as it was unavoidable.\n\nMatoran paused, letting the weight of the situation settle. There were too many factions with reasons to be involved in this. But someone, somewhere, had made a statement. And it was his job to figure out which message it was.\n\n=== END ===",
-        "subBlocks": [],
-        "linkTo": null,
-        "position": {
-          "x": 4299,
-          "y": 783
+          "x": 338,
+          "y": -173
         },
         "blocktype": 0
       },
       {
         "id": 6,
-        "text": "Matoran smirked, his fingers tapping against the datapad with practiced nonchalance. He glanced back at the Syndicarian detective, his eyes narrowing slightly. \"Right, so we've got a radical, a bleeding heart, and a bloody mess. What am I missing here? Give me the cliff notes—I'm not in the mood for the full political briefing today.\" His tone was dry, almost too casual, as if he were more interested in the rain outside than the man standing in front of him.\n\nThe Syndicarian detective didn’t seem to appreciate the tone, but he shrugged, folding his arms. “Right,” he muttered, rubbing his stubbled chin. “Velk was an Eridani agitator. Public speeches, rallies, the whole deal. Slit throat, no witnesses, no clear motive—except for maybe everything he stood for.”",
-        "subBlocks": [],
-        "linkTo": 3,
+        "text": "<p>\"Yeah, I’ve got an interview at the Emissarium,\" Matoran replied, his tone attempting confidence but betraying the nerves beneath. \"Just hoping to make a good impression.\"</p><p>The miner’s lips curled into a faint smile. \"The Emissarium, huh? That’s a big deal. You one of those planner types, or is this more of a stepping stone?\"</p>",
+        "subBlocks": [
+          {
+            "text": "Bit of both, I guess. Figured it’s a solid place to start. Good work, decent pay.",
+            "linkTo": 18
+          },
+          {
+            "text": "Yeah, it's not bad. Keeps things steady, and the hours are pretty manageable.",
+            "linkTo": 20
+          }
+        ],
+        "linkTo": null,
         "position": {
-          "x": 841,
-          "y": 498
-        },
-        "blocktype": 0
-      },
-      {
-        "id": 7,
-        "text": "<div class=\"ql-editor\" contenteditable=\"true\"><p>“I don’t know,” Matoran replied, his voice steady, though the tension of the room was palpable. “But I’d rather not jump to conclusions just yet. Can I get an overview of the facts?”</p></div><div class=\"ql-tooltip ql-hidden\"><a class=\"ql-preview\" rel=\"noopener noreferrer\" target=\"_blank\" href=\"about:blank\"></a><input type=\"text\" data-formula=\"e=mc^2\" data-link=\"https://quilljs.com\" data-video=\"Embed URL\"><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>",
-        "subBlocks": [],
-        "linkTo": 3,
-        "position": {
-          "x": 1038,
-          "y": 96
+          "x": 1516,
+          "y": 387
         },
         "blocktype": 0
       },
       {
         "id": 8,
-        "text": "Matoran nodded slowly, his expression unwavering. \"This isn't a political game, Detective. Not here, not now. You can save the opinions for after hours. I don't care what your stance is, but in this room, we work the case—no agendas.\"\n\nThe tension in the air grew thicker, and for a moment, the other officers seemed to hold their breath. The detective eyed Matoran for a long moment, his fingers twitching near his collar. Finally, with a grunt, he reached up and unpinned the Syndicarian insignia from his coat, slipping it into his pocket with a sharp motion. His eyes, though, never left Matoran’s face.\n\nMatoran exhaled quietly and turned his attention back to the body, feeling the weight of the room return to normal.",
+        "text": "<p>\"And a hell of a lot of politics,\" the man interrupted, chuckling. He leaned forward, resting his elbows on his knees. \"Don’t get me wrong, kid. It’s a respectable gig. But keep your wits about you. The higher you climb, the sharper the blades get.\"</p><p>Matoran nodded slowly, unsure how to respond. The man’s tone wasn’t threatening, but the weight of experience carried in his words was undeniable.</p>",
         "subBlocks": [],
-        "linkTo": 13,
+        "linkTo": 23,
         "position": {
-          "x": 1479,
-          "y": 898
-        },
-        "blocktype": 0
-      },
-      {
-        "id": 9,
-        "text": "“Take. It. Off.” Matoran repeated, his voice barely rising above the murmur of the rain, but each word was delivered with precision. He wasn’t going to waste time with games or pleasantries. Not here, not now.\n\nThe tension in the air grew thicker, and for a moment, the other officers seemed to hold their breath. The detective eyed Matoran for a long moment, his fingers twitching near his collar. Finally, with a grunt, he reached up and unpinned the Syndicarian insignia from his coat, holding it in his palm with a final, resentful flick of his wrist. Matoran watched him do it, his gaze cold and unsympathetic.\n\n“Good,” Matoran said, his voice now calmer, almost a whisper, but there was something in it that suggested the conversation was far from over.",
-        "subBlocks": [],
-        "linkTo": 13,
-        "position": {
-          "x": 1476,
-          "y": 1301
-        },
-        "blocktype": 0
-      },
-      {
-        "id": 10,
-        "text": "He met the Syndicarian’s eyes without flinching, his jaw set. “I’m not a fan of Syndicarians in the first place. And if you think this case is some kind of political statement, I’d appreciate it if you didn’t wear that symbol while you’re in here.”\n\nThe detective blinked, clearly taken aback by the directness, but Matoran didn’t waver. He had no patience for the biases that came with that pin, especially not when the victim’s life was nothing more than fodder for someone else’s agenda.\n\nThe tension in the air grew thicker, and for a moment, the other officers seemed to hold their breath. The detective eyed Matoran for a long moment, his fingers twitching near his collar. Finally, with a grunt, he reached up and unpinned the Syndicarian insignia from his coat, holding it in his palm with a final, resentful flick of his wrist. Matoran watched him do it, his gaze cold and unsympathetic.\n\n“Good,” Matoran said, his voice now calmer, almost a whisper, but there was something in it that suggested the conversation was far from over.",
-        "subBlocks": [],
-        "linkTo": 13,
-        "position": {
-          "x": 1480,
-          "y": 1673
+          "x": 2756,
+          "y": 322
         },
         "blocktype": 0
       },
       {
         "id": 11,
-        "text": "Matoran’s eyes flicked from the discarded pin back to the detective, his impatience rising. “Overview,” he demanded, his voice sharp. “I don’t have time for your politics. What happened here?” He gestured toward the body with a quick motion, his focus unshifting.",
-        "subBlocks": [],
-        "linkTo": 14,
+        "text": "<p>Matoran tilted his head slightly, his lips curling into a dry smile. “Nah,” he said, spreading his hands in mock sincerity. “I just dress like this for subway rides. Gotta keep things interesting.”</p><p>The man chuckled, a deep, rumbling sound that seemed to come from his chest. “Well, it’s working. You’ve got half the car wondering if you’re a Syndicarian agent or a runaway groom.”</p><p>The man leaned forward, resting his forearms on his knees. “So what’s the real story? No way you’re just riding around in that to keep us guessing.”</p>",
+        "subBlocks": [
+          {
+            "text": "Yeah, I’ve got an interview at the Emissarium. Just hoping to make a good impression.",
+            "linkTo": 6
+          },
+          {
+            "text": "Why do you ask? You recruiting?",
+            "linkTo": 13
+          }
+        ],
+        "linkTo": null,
         "position": {
-          "x": 2756,
-          "y": 1083
-        },
-        "blocktype": 0
-      },
-      {
-        "id": 12,
-        "text": "Matoran’s eyes flicked back to the body, then to the Syndicarian detective, his voice steady. “Give me an overview. What do we know?”",
-        "subBlocks": [],
-        "linkTo": 14,
-        "position": {
-          "x": 2736,
-          "y": 1388
+          "x": 795,
+          "y": 1183
         },
         "blocktype": 0
       },
       {
         "id": 13,
-        "text": "",
+        "text": "<p>Matoran leaned back slightly, his lips curving into a faint, cautious smile.</p><p>“Why do you ask?” he replied, his tone light but edged with curiosity. “You recruiting?”</p><p>The man chuckled, a sound like gravel tumbling down a metal chute. “Recruiting? Nah, not unless you’ve got a knack for fixing A-Drive stabilizers or enjoy freezing your ass off mining thorium out near the Draco Wall.” He shook his head, amused by the thought. “Just figured you had that look—clean cut, on edge, like a guy chasing something bigger.”</p><p>Matoran smirked, glancing at his reflection in the window. He supposed he did look the part: polished boots, a crisp shirt under his jacket, and that restless energy betraying the importance of the day ahead.</p><p>\"Hey, you know what? I might have something for ya,\" the man muttered, ruffling through his backpack.  He pulled out a crumpled slip of paper and held it out to Matoran.</p><p>\"Coffee punch card. I never go there, but this should get you a free cup.\"</p>",
         "subBlocks": [
           {
-            "text": "Overview. I don’t have time for your politics. What happened here?",
-            "linkTo": 11
+            "text": "Thanks, but no thanks. I'm not a coffee person.",
+            "linkTo": 25
           },
           {
-            "text": "Give me an overview. What do we know?",
-            "linkTo": 12
+            "text": "Um... thanks...",
+            "linkTo": 26
+          },
+          {
+            "text": "Thanks! I love coffee!",
+            "linkTo": 27
+          },
+          {
+            "text": "Thank you.",
+            "linkTo": 29
           }
         ],
         "linkTo": null,
         "position": {
-          "x": 2156,
-          "y": 1122
+          "x": 1574,
+          "y": 891
         },
         "blocktype": 0
       },
       {
-        "id": 14,
-        "text": "The Syndicarian detective’s eyes flicked briefly to the others in the room, his posture stiffening in a silent challenge before he gave a begrudging nod. \n\n\"Jarin Velk, male, 29. Activist, agitator, whatever you want to call him. We’ve got his background, and he’s been involved in a number of protests, some more... intense than others. The kind that ruffle feathers in high places.\"",
+        "id": 18,
+        "text": "<p>Matoran shrugged, shifting slightly in his seat. \"Bit of both, I guess. Figured it’s a solid place to start. Good work, decent pay–\"</p>",
         "subBlocks": [],
-        "linkTo": 3,
+        "linkTo": 8,
         "position": {
-          "x": 3220,
-          "y": 230
+          "x": 2136,
+          "y": 408
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 20,
+        "text": "<p>Matoran shrugged, shifting slightly in his seat. \"<span style=\"background-color: rgb(17, 17, 17); color: rgb(236, 236, 236);\">Yeah, it's not bad. Keeps things steady, and the hours are pretty manageable.</span>–\"</p>",
+        "subBlocks": [],
+        "linkTo": 8,
+        "position": {
+          "x": 2116,
+          "y": 712
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 23,
+        "text": "<p>The subway’s automated voice announced the next station, cutting through the ambient hum of conversation and machinery.</p><p>As the train slowed, the miner sat back, a thoughtful look crossing his face. \"Well, good luck in there. Just remember, first impressions aren’t everything. It’s what you follow up with that counts.\"</p>",
+        "subBlocks": [
+          {
+            "text": "[Glance at the coffee punch card]",
+            "linkTo": 36,
+            "condition": "inventory.includes('emr_coffee_punch_card')"
+          },
+          {
+            "text": "[Nod politely]",
+            "linkTo": 34
+          },
+          {
+            "text": "Thanks.&nbsp; Have a good one.",
+            "linkTo": 35
+          }
+        ],
+        "linkTo": null,
+        "position": {
+          "x": 3542,
+          "y": 705
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 25,
+        "text": "<p>Matoran shook his head politely.</p><p>\"<span style=\"background-color: rgb(17, 17, 17); color: rgb(236, 236, 236);\">Thanks, but no thanks.  I'm not a coffee person.\" he said, throwing his hands up apologetically.</span></p><p>The man shrugged, stuffing it back into his backpack.  \"Suit yourself!  Something tells me you'll regret turning down a free cup of joe once you've joined the pencil pushers.\"</p>",
+        "subBlocks": [],
+        "linkTo": 23,
+        "position": {
+          "x": 2204,
+          "y": 1032
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 26,
+        "text": "<p>\"Um... thanks,\" Matoran murmured, grabbing the slip of paper before he could fully process what the man had said.  Perhaps he <em>did</em> need a cup of coffee.</p><p>The man nodded eagerly, grinning.</p>",
+        "subBlocks": [],
+        "linkTo": 31,
+        "position": {
+          "x": 2203,
+          "y": 1350
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 27,
+        "text": "<p><span style=\"background-color: rgb(17, 17, 17); color: rgb(236, 236, 236);\">\"Thanks! I love coffee,\" Matoran replied, beaming–or at least, as much as someone could beam at 7AM on a subway car.  He really did love coffee, and he had no doubt caffeine would become a precious commodity during his time in the Emissarium with its infamous work ethic.</span></p><p>The man nodded eagerly, grinning as Matoran took the slip of paper.</p>",
+        "subBlocks": [],
+        "linkTo": 31,
+        "position": {
+          "x": 2171,
+          "y": 1940
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 29,
+        "text": "<p>\"Thank you,\" Matoran said with a polite nod, grabbing the slip of paper before he could fully process what the man had said.  Perhaps he <em>did</em> need a cup of coffee.</p><p>The man nodded eagerly, grinning.</p>",
+        "subBlocks": [],
+        "linkTo": 31,
+        "position": {
+          "x": 2186,
+          "y": 1621
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 31,
+        "text": "alert(\"adding punch card!\"); inventory.push('emr_coffee_punch_card');",
+        "subBlocks": [],
+        "linkTo": 23,
+        "position": {
+          "x": 3012,
+          "y": 1515
+        },
+        "blocktype": 1
+      },
+      {
+        "id": 33,
+        "text": "<p>As the car screeched to a halt and Matoran shifted, getting ready to barge his way out of the car, he glanced back at the miner, still reclined in his seat.  The miner nodded back, and Matoran could've sworn he saw a glint of something in the miner's eyes... Suspicion? Malice?  It was brief, but the miner glanced away.</p><p>Matoran shrugged, clutching his bag as the door hissed open.</p>",
+        "subBlocks": [],
+        "linkTo": 37,
+        "position": {
+          "x": 4823,
+          "y": 737
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 34,
+        "text": "<p>Matoran nodded, turning toward the door.</p>",
+        "subBlocks": [],
+        "linkTo": 33,
+        "position": {
+          "x": 4198,
+          "y": 886
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 35,
+        "text": "<p>\"Thanks,\" Matoran murmured, patting his coat pockets to check that his ID was still there.  \"Have a good one.\"</p>",
+        "subBlocks": [],
+        "linkTo": null,
+        "position": {
+          "x": 4200,
+          "y": 1060
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 36,
+        "text": "<p>Matoran fished the punch card out of the pocket he'd shoved it into, glancing at it before doing a double take.</p><p>This wasn't a coffee punch card.  It was a faded old coupon of some kind, probably expired–but it was the words scrawled on it with a red marker (he hoped that's what it was) that made Matoran's face turn pale.</p><p><span style=\"color: rgb(240, 102, 102);\">\"THE BLOOD BURNS BRIGHT\"</span></p><p>He knew the slogan well.  It was the watchword of Eridani separatists and nationalists, more often associated with bombings, assassinations, and kidnappings then genuine activism.</p><p>Matoran whipped his head around, but the miner was gone.</p>",
+        "subBlocks": [
+          {
+            "text": "[Shrug.&nbsp; It's not a big deal.]",
+            "linkTo": 38
+          },
+          {
+            "text": "[Uh-oh.&nbsp; I do NOT want this in my pocket.]",
+            "linkTo": 41
+          }
+        ],
+        "linkTo": null,
+        "position": {
+          "x": 4288,
+          "y": 195
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 37,
+        "text": "<h2>END.</h2>",
+        "subBlocks": [],
+        "linkTo": null,
+        "position": {
+          "x": 6005,
+          "y": 681
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 38,
+        "text": "<p><em>Well... that's creepy</em>, Matoran thought, shrugging as he stuffed the card back into his pocket.  Was he just targeted for recruitment?  Was it a threat?  Who knew.</p><p>Regardless, Matoran knew the Emissarium building was among the safest places in the city.</p>",
+        "subBlocks": [],
+        "linkTo": 39,
+        "position": {
+          "x": 4868,
+          "y": 134
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 39,
+        "text": "<p>As the car screeched to a halt and Matoran shifted, getting ready to barge his way out of the car, he took a deep breath.</p><p>One crazy thing at a time.</p>",
+        "subBlocks": [],
+        "linkTo": 37,
+        "position": {
+          "x": 5514,
+          "y": 358
+        },
+        "blocktype": 0
+      },
+      {
+        "id": 41,
+        "text": "<p>Matoran's forehead began to bead with sweat.  He made a mental note to find a garbage bin on the way out, remembering with a jolt that he'd likely be searched on his way into the Emissarium building.</p><p>And he did NOT want this in his pocket.</p>",
+        "subBlocks": [],
+        "linkTo": 39,
+        "position": {
+          "x": 4945,
+          "y": 440
         },
         "blocktype": 0
       }

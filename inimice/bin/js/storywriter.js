@@ -256,13 +256,6 @@ document.addEventListener('DOMContentLoaded', () => {
       textarea.style.width = '100%';
       textarea.style.boxSizing = 'border-box';
 
-      if (default_text !== ''){
-        textarea.innerHTML = default_text;
-      } else {
-        textarea.innerHTML = blockData.text;
-      }
-      blockData.text = textarea.innerHTML;
-
       autoResizeTextarea(textarea);
 
       block.appendChild(textarea);
@@ -332,11 +325,26 @@ document.addEventListener('DOMContentLoaded', () => {
         
       });
 
+      const actualQuillText = textarea.querySelector('.ql-editor');
+
       quill.on('text-change', function () {
-        blockData.text = textarea.innerHTML;
+        blockData.text = actualQuillText.innerHTML;
         autoResizeTextarea(textarea);
         updateLines(block);
       });
+
+      if (blockData.text != null && blockData.text != ''){
+        actualQuillText.innerHTML = blockData.text;
+      }
+
+      /*
+      if (default_text !== ''){
+        textarea.innerHTML = default_text;
+      } else {
+        textarea.innerHTML = blockData.text;
+      }
+      */
+      blockData.text = actualQuillText.innerHTML;
 
     } else if (blocktype == 1 || blocktype == 2){
       // Block Delete Button
@@ -356,7 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       textarea.addEventListener('input', () => {
         blockData.text = textarea.value;
-        console.log(blockData.text);
+        //console.log(blockData.text);
         autoResizeTextarea(textarea);
         updateLines(block);
       });
@@ -1094,6 +1102,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.addEventListener("paste", (event) => {
+    return;
 
     if (Boolean(event.target.closest('.textarea')) || event.target.tagName === 'TEXTAREA' || event.target.tagName === 'INPUT'){
       return;
