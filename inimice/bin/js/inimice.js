@@ -1,107 +1,13 @@
-//const { read } = require("original-fs");
+var sound = new Howl({
+  src: ['resources/sounds/subway-ambience-001.mp3']
+});
 
-// Regex patterns
-const alphabets = "([A-Za-z])";
-const prefixes = "(Mr|St|Mrs|Ms|Dr)[.]";
-const suffixes = "(Inc|Ltd|Jr|Sr|Co)";
-const starters = "(Mr|Mrs|Ms|Dr|Prof|Capt|Cpt|Lt|He\\s|She\\s|It\\s|They\\s|Their\\s|Our\\s|We\\s|But\\s|However\\s|That\\s|This\\s|Wherever)";
-const acronyms = "([A-Z][.][A-Z][.](?:[A-Z][.])?)";
-const websites = "[.](com|net|org|io|gov|edu|me)";
-const digits = "([0-9])";
-const multipleDots = /\.{2,}/g;
+// Clear listener after first call.
+sound.once('load', function(){
+  sound.play();
+});
 
-const htmlString2 =
-"<div id=\"text-container\" class=\"ql-editor\" contenteditable=\"true\"><h1>Chapter 1</h1><p>The <span style=\"background-color: rgb(0, 97, 0);\">fields</span> of <u>legend</u>.  Why, then, do you <span style=\"color: rgb(250, 204, 204);\">resist</span>?</p><p>What <strong class=\"ql-font-arial\"><u>else</u></strong> do you know?</p></div><div class=\"ql-tooltip ql-hidden\" style=\"margin-top: 0px;\"><a class=\"ql-preview\" rel=\"noopener noreferrer\" target=\"_blank\" href=\"about:blank\"></a><input type=\"text\" data-formula=\"e=mc^2\" data-link=\"https://quilljs.com\" data-video=\"Embed URL\"><a class=\"ql-action\"></a><a class=\"ql-remove\"></a></div>"
-const htmlString = `
-<div id="text-container">
-    <h1>Header Example</h1>
-    <p>This is a paragraph to be <strong>revealed</strong> letter by letter, including <em>HTML tags</em>.</p>
 
-    <p>Why, what do you think?  Do you... know?  Why?</p>
-</div>
-`;
-
-/*
-function splitTextIntoParagraphs(text) {
-    // Splits by blank lines into paragraphs
-    // In the original C#, it uses a regex that matches empty lines.
-    // We'll assume paragraphs are separated by double newlines:
-    let paragraphs = text.split(/\r?\n\r?\n/);
-    return paragraphs;
-}*/
-
-function splitSentenceIntoClauses(sentence) {
-    // Split on punctuation marks like commas, semicolons, colons, keeping the delimiter
-    // Original pattern: (?<=[,;:])
-    // Modern JS supports lookbehinds in many engines, but if not supported:
-    // We can split by ([,;:]) and rejoin with that delimiter if necessary.
-    // A simpler workaround: Use a regex that includes the delimiter and then recombine.
-    // We'll do something similar: First, split on these characters:
-    let pattern = /([,;:])/;
-    let parts = sentence.split(pattern);
-
-    // After splitting, parts array will have tokens and delimiters interleaved, e.g. ["This is a clause", ",", " another clause", ";", " more"]
-    // Rebuild by pairing delimiter with preceding text
-    let clauses = [];
-    for (let i = 0; i < parts.length; i++) {
-        if (i === 0) {
-            clauses.push(parts[i]);
-        } else if (pattern.test(parts[i])) {
-            // It's a delimiter
-            clauses[clauses.length - 1] += parts[i];
-        } else {
-            // Next clause starts
-            clauses.push(parts[i]);
-        }
-    }
-
-    // Trim clauses
-    //clauses = clauses.map(c => c.trim()).filter(c => c.length > 0);
-    return clauses;
-}
-
-function splitIntoSentences(text) {
-    // Replicating the logic from C#
-    text = text.replace(new RegExp(prefixes, 'g'), "$1<prd>");
-    text = text.replace(new RegExp(websites, 'g'), "<prd>$1");
-    text = text.replace(new RegExp(digits + "\\." + digits, 'g'), "$1<prd>$2");
-    text = text.replace(multipleDots, function (match) {
-        let length = match.length;
-        // length times "<prd>" then one "<stop>"
-        return "<prd>".repeat(length) + "<stop>";
-    });
-
-    if (text.indexOf("Ph.D") !== -1) {
-        text = text.replace("Ph.D.", "Ph<prd>D<prd>");
-    }
-
-    text = text.replace(new RegExp("\\s" + alphabets + "\\. ", 'g'), " $1<prd> ");
-    text = text.replace(new RegExp(acronyms + " " + starters, 'g'), "$1<stop> $2");
-    text = text.replace(new RegExp(alphabets + "\\." + alphabets + "\\." + alphabets + "\\.", 'g'), "$1<prd>$2<prd>$3<prd>");
-    text = text.replace(new RegExp(alphabets + "\\." + alphabets + "\\.", 'g'), "$1<prd>$2<prd>");
-    text = text.replace(new RegExp(" " + suffixes + "\\. " + starters, 'g'), " $1<stop> $2");
-    text = text.replace(new RegExp(" " + suffixes + "\\.", 'g'), " $1<prd>");
-    text = text.replace(new RegExp(" " + alphabets + "\\.", 'g'), " $1<prd>");
-
-    text = text.replace(/\./g, ".<stop>");
-    text = text.replace(/\.<stop>"/g, ".\"<stop>");
-
-    text = text.replace(/\?/g, "?<stop>");
-    text = text.replace(/\?<stop>"/g, "?\"<stop>");
-
-    text = text.replace(/!/g, "!<stop>");
-    text = text.replace(/!<stop>"/g, "!\"<stop>");
-
-    text = text.replace(/<prd>/g, ".");
-    let sentences = text.split("<stop>");
-    // Remove empty trailing sentence if any
-    if (sentences.length > 0 && sentences[sentences.length - 1].trim() === "") {
-        sentences.pop();
-    }
-    // Trim sentences
-    //sentences = sentences.map(s => s.trim()).filter(s => s.length > 0);
-    return sentences;
-}
 
 document.addEventListener('DOMContentLoaded', function() {
 

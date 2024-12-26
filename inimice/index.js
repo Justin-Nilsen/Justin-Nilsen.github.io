@@ -6,9 +6,10 @@ let mainWindow;
 
 const createWindow = () => {
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
-        fullscreen: true,
+        //width: 800,
+        //height: 600,
+        //fullscreen: true,
+        show: false,
         webPreferences: {
             preload: path.join(__dirname, 'bin/js/preload.js'),
             contextIsolation: false,
@@ -17,9 +18,13 @@ const createWindow = () => {
         }
     })
 
+    mainWindow.maximize();
+    mainWindow.show();
     //win.maximize();
 
-    mainWindow.loadFile('bin/storywriter.html')
+    mainWindow.loadFile('bin/inimice.html')
+
+    mainWindow.webContents.openDevTools()
 
     // Prevent the default shortcut for opening DevTools
     mainWindow.webContents.on('before-input-event', (event, input) => {

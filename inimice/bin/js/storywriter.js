@@ -1,4 +1,3 @@
-
 const svg = document.getElementById('svgCanvas');
 
 function getSVGPoint(evt) {
