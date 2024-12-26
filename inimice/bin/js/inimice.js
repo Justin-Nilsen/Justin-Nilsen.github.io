@@ -446,12 +446,14 @@ document.addEventListener('DOMContentLoaded', function() {
           actualButtons.appendChild(butt);
           blocksGenerated++;
         }
-        if (blocksGenerated <= 0){
-          currentBlockId = blocks[currentBlockId].linkTo;
-          resolve(currentBlockId);
-        }
       });
-      dialogOptionsPanel.style.display = 'block';
+
+      if (blocksGenerated <= 0){
+        currentBlockId = blocks[currentBlockId].linkTo;
+        resolve(currentBlockId);
+      } else {
+        dialogOptionsPanel.style.display = 'block';
+      }
     });
   }
 
