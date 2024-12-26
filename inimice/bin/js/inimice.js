@@ -274,8 +274,44 @@ document.addEventListener('DOMContentLoaded', function() {
     await processNodesSequentially(Array.from(referenceContainer.childNodes), cloneContainer);
   }
 
+  const Genders = {
+    Male: 0,
+    Female: 1,
+    Non: 2
+  };
+
+  let gender = Genders.Male;
+
+  const PronounSubstitutions = {
+    "{His}": ["His", "Her", "Their"],
+    "{his}": ["his", "her", "their"],
+    "{Hisp}": ["His", "Hers", "Theirs"],
+    "{hisp}": ["his", "hers", "theirs"],
+    "{He}": ["He", "She", "They"],
+    "{he}": ["he", "she", "they"],
+    "{Him}": ["Him", "Her", "Them"],
+    "{him}": ["him", "her", "them"],
+    "{Himself}": ["Himself", "Herself", "Themself"],
+    "{himself}": ["himself", "herself", "themself"]
+  }
+  
+  function PronounSub(key){
+    return PronounSubstitutions[key][gender];
+  }
+
   function substituteVariables(text){
-    return text.replace(/Matoran/g, playerName);
+    var cleanedText = text.replace(/Matoran/g, playerFirstName);
+    cleanedText = cleanedText.replace(/{His}/g, PronounSub("{His}"));
+    cleanedText = cleanedText.replace(/{his}/g, PronounSub("{his}"));
+    cleanedText = cleanedText.replace(/{Hips}/g, PronounSub("{Hisp}"));
+    cleanedText = cleanedText.replace(/{hisp}/g, PronounSub("{hisp}"));
+    cleanedText = cleanedText.replace(/{He}/g, PronounSub("{He}"));
+    cleanedText = cleanedText.replace(/{he}/g, PronounSub("{he}"));
+    cleanedText = cleanedText.replace(/{Him}/g, PronounSub("{Him}"));
+    cleanedText = cleanedText.replace(/{him}/g, PronounSub("{him}"));
+    cleanedText = cleanedText.replace(/{Himself}/g, PronounSub("{Himself}"));
+    cleanedText = cleanedText.replace(/{himself}/g, PronounSub("{himself}"));
+    return cleanedText;
   }
 
   let speedIndex = 1;
@@ -286,11 +322,15 @@ document.addEventListener('DOMContentLoaded', function() {
   let readingSpeedSliderContainer = document.getElementById('slider_container');
   let name_input_panel = document.getElementById('input_panel');
   let name_input_button = document.getElementById('name_input_button');
-  let player_name_input = document.getElementById('player_name_input');
+  let first_name_input = document.getElementById('first_name_input');
+  let last_name_input = document.getElementById('last_name_input');
+  let gender_selection = document.getElementById('gender_input');
 
   function load_name_values_and_begin(event){
     event.preventDefault();
-    playerName = player_name_input.value;
+    playerFirstName = first_name_input.value;
+    playerLastName = last_name_input.value;
+    gender = gender_selection.value;
     name_input_panel.style.display = "none";
     Begin();
   }
@@ -299,7 +339,8 @@ document.addEventListener('DOMContentLoaded', function() {
     load_name_values_and_begin(event);
   });
 
-  player_name_input.addEventListener("submit", load_name_values_and_begin);
+
+  name_input_panel.addEventListener("submit", load_name_values_and_begin);
 
   readingSpeedSlider.addEventListener('input', (event) => {
     speedIndex = event.target.value;
@@ -328,7 +369,8 @@ document.addEventListener('DOMContentLoaded', function() {
   let currentBlockId = 0;
   let blocks = {};
   let inventory = [];
-  let playerName = "Joe";
+  let playerFirstName = "Joe";
+  let playerLastName = "Scott";
 
   function importFromJSON(jsonData) {
     

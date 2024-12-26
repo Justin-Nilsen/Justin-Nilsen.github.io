@@ -18,9 +18,25 @@
         <input type="range" min="0" max="8" step="1" class="form-range" id="readingSpeedSlider">
     </div>
     <form id="input_panel">
-        <label class="form-label mt-4">Player Name:</label>
+        <h1>Character Creation</h1>
+        <label class="form-label">First Name:</label>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" id="player_name_input" placeholder="Enter player name...">
+            <input type="text" style="background-color: black; color: white;" class="form-control" id="first_name_input" placeholder="Joe">
+        </div>
+        <label class="form-label">Last Name:</label>
+        <div class="input-group mb-3">
+            <input type="text" style="background-color: black; color: white;" class="form-control" id="last_name_input" placeholder="Scott">
+        </div>
+
+        <select style="background-color: black; color: white;" name="cars" id="gender_input">
+            <option value="0">He/Him/His</option>
+            <option value="1">She/Her/Hers</option>
+            <option value="2">They/Them/Theirs</option>
+        </select>
+
+        <label class="form-label mt-4"></label>
+        <div class="input-group mb-3">
+            <!--<input type="text" class="form-control" id="player_name_input" placeholder="Enter player name...">-->
             <button class="btn btn-secondary" type="submit" id="name_input_button">Begin</button>
         </div>
     </form>

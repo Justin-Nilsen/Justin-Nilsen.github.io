@@ -397,6 +397,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 0);
       });
       block.appendChild(addOptionButton);
+
+      const copyTextButton = document.createElement('button');
+      copyTextButton.textContent = 'Copy';
+      copyTextButton.classList.add("btn-dark");
+      copyTextButton.classList.add("btn");
+      copyTextButton.style = "margin-left: 5px;";
+      copyTextButton.addEventListener('click', () => {
+        copyTextUpTo(block);
+      });
+      block.appendChild(copyTextButton);
     }
 
     if (blocktype != 2){
@@ -866,6 +876,29 @@ document.addEventListener('DOMContentLoaded', () => {
         lineInfo.path.setAttribute('d', pathData);
       }
     });
+  }
+
+  function copyTextUpTo(block){
+    let textContent = copyPrecedingText(block, "");
+    navigator.clipboard.writeText(textContent);
+  }
+
+  function copyPrecedingText(block, text){
+    for (let i = lines.length - 1; i >= 0; i--) {
+      let lineInfo = lines[i];
+      if (lineInfo.to === block) {
+        let blockOrSubblock = lineInfo.from;
+        let fromBlock = blockOrSubblock.closest('.block');
+        if (block.dataset.blocktype == 0){
+          let textElement = block.querySelector('.ql-editor').innerText;
+          return copyPrecedingText(fromBlock, '\n\n' + textElement + text);
+        } else {
+          return copyPrecedingText(fromBlock, text);
+        }
+      }
+    }
+
+    return text;
   }
 
   function deleteSubBlock(subBlock, blockData) {
