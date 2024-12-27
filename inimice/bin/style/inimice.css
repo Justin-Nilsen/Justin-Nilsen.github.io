@@ -24,8 +24,9 @@
 }
 
 #slider_container {
-    display: none;
+    /*display: none;*/
     position: fixed;
+    margin-right: 60px;
     left: 10px;
     right: 10px;
     background-color: #111111;
@@ -133,6 +134,7 @@
 }
 
 body {
+    overflow: hidden;
     height: 100%;
     width: 100%;
     background-color: #111111;
