@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let readingSpeed = speeds[speedIndex];
 
   let readingSpeedSlider = document.getElementById('readingSpeedSlider');
-  let readingSpeedSliderContainer = document.getElementById('slider_container');
+  let readingSpeedSliderContainer = document.getElementById('slider-container');
   let name_input_panel = document.getElementById('input_panel');
   let name_input_button = document.getElementById('name_input_button');
   let first_name_input = document.getElementById('first_name_input');
@@ -408,10 +408,14 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function Begin(){
+    /*
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
       readingSpeedSliderContainer.style.display = 'block';
     }
+      */
+    readingSpeedSliderContainer.style.display = 'flex';
+    readingSpeedSlider.value = speedIndex;
     importFromJSON(decodeURIComponent(storyGraphData));
   }
 

@@ -34,9 +34,16 @@
     opacity: 1;
 }
 
+#slider-container:hover .speed-range {
+    opacity: 1;
+}
+
+#slider-container:focus .speed-range {
+    opacity: 1;
+}
+
 #slider-container {
-    /* display: none;*/
-    display: block;
+    display: none;
     position: absolute;
     bottom: 0;
     background-color: #111111;
@@ -44,20 +51,21 @@
     padding: 10px;
     padding-left: 25px;
     padding-right: 25px;
-    display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.5s;
+    will-change: opacity;
     width: 100%;
 }
 
 .speed-range {
+    opacity: 0.3;
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
     width: 100%; /* Full-width */
     height: 0.5rem; /* Specified height */
-    background: #393939; /* Grey background */
+    background: #4b4b4b; /* Grey background */
     outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
     transition: opacity .2s;
     border-radius: 1rem;
@@ -68,7 +76,7 @@
     appearance: none;
     width: 1rem; /* Set a specific slider handle width */
     height: 1rem; /* Slider handle height */
-    background: #929292; /* Green background */
+    background: #ffffff; /* Green background */
     cursor: pointer; /* Cursor on hover */
     border-radius: 1rem;
   }
@@ -76,7 +84,7 @@
   .speed-range::-moz-range-thumb {
     width: 1rem; /* Set a specific slider handle width */
     height: 1rem; /* Slider handle height */
-    background: #929292; /* Green background */
+    background: #ffffff; /* Green background */
     cursor: pointer; /* Cursor on hover */
     border-radius: 1rem;
   }
