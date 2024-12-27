@@ -22,7 +22,7 @@ const createWindow = () => {
     mainWindow.show();
     //win.maximize();
 
-    mainWindow.loadFile('bin/inimice.html')
+    mainWindow.loadFile('index.html')
 
     mainWindow.webContents.openDevTools()
 

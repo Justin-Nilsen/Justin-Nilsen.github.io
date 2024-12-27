@@ -55,6 +55,7 @@ Quill.register({
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  //const homeButton = document.getElementById('homeButton');
   const titleInput = document.getElementById('titleInput');
   const centerButton = document.getElementById('centerButton');
   const exportButton = document.getElementById('exportButton');
@@ -128,6 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
   }, {passive: false});
+
 
   exportButton.addEventListener('click', () => {
     exportToJSON();

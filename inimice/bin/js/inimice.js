@@ -7,7 +7,17 @@ sound.once('load', function(){
   sound.play();
 });
 
-
+document.addEventListener('DOMContentLoaded', function() {
+  const navbar = document.getElementById('navbarColor02');
+  const navBarToggleButton = document.getElementById('navbarToggleButton');
+  navBarToggleButton.addEventListener('click', () => {
+      if (navbar.classList.contains('show')){
+          navbar.classList.remove('show');
+      } else {
+          navbar.classList.add('show');
+      }
+  });
+});
 
 document.addEventListener('DOMContentLoaded', function() {
 
