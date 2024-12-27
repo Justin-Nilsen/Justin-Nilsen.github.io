@@ -196,10 +196,6 @@
     pointer-events: all;
 }
 
-.show {
-    /* background-color: rgba(17, 17, 17, 255) !important;*/
-}
-
 body {
     opacity: 0;
     overflow: hidden;

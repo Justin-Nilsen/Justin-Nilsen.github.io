@@ -289,16 +289,12 @@ document.addEventListener('DOMContentLoaded', function() {
     load_name_values_and_begin(event);
   });
 
-
   name_input_panel.addEventListener("submit", load_name_values_and_begin);
 
   readingSpeedSlider.addEventListener('input', (event) => {
     speedIndex = event.target.value;
     readingSpeed = speeds[speedIndex];
   });
-
-  // SPEED BUTTON
-  /* speedIndex = (speedIndex + 1) % speeds.length; */
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowRight') {
@@ -325,43 +321,45 @@ document.addEventListener('DOMContentLoaded', function() {
   function importFromJSON(jsonData) {
     
     const parsedData = JSON.parse(jsonData);
-    importedData = parsedData['data']['blocksData'];
-
-    /*
-    Store arguments and the body in your json:
-
-    {"function":{"arguments":"a,b,c","body":"return a*b+c;"}}
-    Now parse json and instantiate the function:
-
-    var f = new Function(function.arguments, function.body);
-    */
+    importedData = parsedData.data.blocksData;
 
     setTimeout(() => {
       
       importedData.forEach(blockData => {
         blocks[blockData.id] = blockData;
-        //blockData.subBlocks.forEach((subBlockData, index) => { });
       });
 
       mainloop(blocks);
-
-      //revealText(blocks[blocks[currentBlockId].linkTo]['text'], 'revealed-container', 30);
-      
     }, 0);
   }
 
   async function mainloop() {
     currentBlockId = blocks[currentBlockId].linkTo;
     while(true){
+
       if (blocks[currentBlockId].blocktype == 1){
-        eval(blocks[currentBlockId]['text']);
-      } else if (blocks[currentBlockId].blocktype == 0){
-        await revealText(blocks[currentBlockId]['text'], 'revealed-container', readingSpeed);
-      }
-      if (blocks[currentBlockId].subBlocks.length > 0){
-        newBlockId = await waitForButtonPress();
-      } else {
+        eval(blocks[currentBlockId].text);
         currentBlockId = blocks[currentBlockId].linkTo;
+      }
+      else if (blocks[currentBlockId].blocktype == 2){
+        let condition = eval(blocks[currentBlockId].text);
+        if (condition){
+          currentBlockId = blocks[currentBlockId].subBlocks[0].linkTo;
+        } else {
+          currentBlockId = blocks[currentBlockId].subBlocks[1].linkTo;
+        }
+      }
+      else if (blocks[currentBlockId].blocktype == 0){
+        await revealText(blocks[currentBlockId].text, 'revealed-container', readingSpeed);
+        if (blocks[currentBlockId].blocktype == 0 && blocks[currentBlockId].subBlocks.length > 0){
+          currentBlockId = await waitForButtonPress();
+        } else {
+          currentBlockId = blocks[currentBlockId].linkTo;
+        }
+      }
+
+      if (currentBlockId == null){
+        return; 
       }
     }
   }
@@ -407,20 +405,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  function IsMobile() {
+    return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  }
+
   function Begin(){
-    /*
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-      readingSpeedSliderContainer.style.display = 'block';
-    }
-      */
     readingSpeedSliderContainer.style.display = 'flex';
     readingSpeedSlider.value = speedIndex;
     importFromJSON(decodeURIComponent(storyGraphData));
   }
-
-  setTimeout(() => {
-    // WAIT FOR INPUT
-    //importFromJSON(decodeURIComponent(storyGraphData));
-  }, 50);
 });

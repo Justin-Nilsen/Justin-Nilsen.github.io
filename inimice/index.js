@@ -39,8 +39,8 @@ ipcMain.handle('show-save-dialog', async (event, storyName, jsonData, jsonJS = {
 
     const fs = require('fs');
     fs.mkdir("bin/stories/" + storyName, (err) => {});
-    fs.writeFileSync("bin/stories/" + storyName + "/" + storyName + ".json", jsonData, 'utf-8');
-    fs.writeFileSync("bin/stories/" + storyName + "/" + storyName + ".js", jsonJS, 'utf-8');
+    //fs.writeFileSync("bin/stories/" + storyName + "/" + storyName + ".json", jsonData, 'utf-8');
+    fs.writeFileSync("bin/stories/" + storyName + "/" + storyName + ".inimice", jsonJS, 'utf-8');
 
     /*
     // Options for the save dialog

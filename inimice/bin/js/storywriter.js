@@ -145,7 +145,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const reader = new FileReader();
       reader.onload = (e) => {
         const jsonData = e.target.result;
-        importFromJSON(jsonData);
+        setTimeout(() => {
+          importFromJSON(jsonData, file.name.endsWith(".json"));
+        }, 100);
       };
       reader.readAsText(file);
     }
@@ -966,7 +968,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     wrapper = {data};
     const jsonData = JSON.stringify(wrapper, null, 2);
-    const jsonString = "const storyGraphData = \"" + encodeURIComponent(jsonData) + "\"";
+    const jsonString = "var storyGraphData = \"" + encodeURIComponent(jsonData) + "\"";
 
     try {
       const { ipcRenderer } = require('electron');
@@ -974,6 +976,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     } catch {}
 
+    
     // For demonstration, we'll log it to the console
     // Alternatively, display it in a new window or download it
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(jsonData);
@@ -983,11 +986,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(downloadAnchorNode); // required for firefox
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
+    
 
     const dataStrJavascript = "data:text/javascript;charset=utf-8," + encodeURIComponent(jsonString);
     const downloadAnchorNodeJavascript = document.createElement('a');
     downloadAnchorNodeJavascript.setAttribute("href", dataStrJavascript);
-    downloadAnchorNodeJavascript.setAttribute("download", `${title}_Data.js`);
+    downloadAnchorNodeJavascript.setAttribute("download", `${title}_Data.inimice`);
     document.body.appendChild(downloadAnchorNodeJavascript); // required for firefox
     downloadAnchorNodeJavascript.click();
     downloadAnchorNodeJavascript.remove();
@@ -1007,7 +1011,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function importFromJSON(jsonData) {
+  function importFromJSON(jsonData, isJson=true) {
     // Clear existing blocks and lines
     blocksData.length = 0; // Clear blocksData array
     lines.length = 0; // Clear lines array
@@ -1027,8 +1031,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     `;
     canvasContainer.querySelectorAll('.block').forEach(block => block.remove()); // Remove blocks from DOM
-
+    
+    if (!isJson){
+      eval(jsonData);
+      jsonData = decodeURIComponent(storyGraphData);
+    }
     const parsedData = JSON.parse(jsonData);
+
+
     titleInput.value = parsedData.data.title;
     importedData = parsedData.data.blocksData;
 

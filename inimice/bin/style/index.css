@@ -144,7 +144,7 @@
 
 body {
     opacity: 0;
-    transition: 1s;
+    transition: 2s;
     height: 100%;
     width: 100%;
     will-change: opacity;
