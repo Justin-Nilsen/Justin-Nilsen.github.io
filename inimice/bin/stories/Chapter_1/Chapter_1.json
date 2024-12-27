@@ -6,10 +6,10 @@
         "id": 0,
         "text": "",
         "subBlocks": [],
-        "linkTo": 1,
+        "linkTo": 42,
         "position": {
-          "x": -343,
-          "y": -92
+          "x": -838,
+          "y": -18
         },
         "blocktype": -1
       },
@@ -314,6 +314,17 @@
           "y": 440
         },
         "blocktype": 0
+      },
+      {
+        "id": 42,
+        "text": "play_sound('subway-ambience-001.mp3');",
+        "subBlocks": [],
+        "linkTo": 1,
+        "position": {
+          "x": -212,
+          "y": -127
+        },
+        "blocktype": 1
       }
     ]
   }

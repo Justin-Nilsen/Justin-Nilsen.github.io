@@ -143,8 +143,11 @@
 }
 
 body {
+    opacity: 0;
+    transition: 1s;
     height: 100%;
     width: 100%;
+    will-change: opacity;
     background-color: #111111;
 }
 

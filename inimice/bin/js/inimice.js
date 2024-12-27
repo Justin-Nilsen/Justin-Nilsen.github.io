@@ -1,13 +1,47 @@
-var sound = new Howl({
-  src: ['resources/sounds/subway-ambience-001.mp3']
-});
 
-// Clear listener after first call.
-sound.once('load', function(){
+const sounds = {};
+
+function play_sound(sound_name, do_loop=false){
+  let sound;
+
+  sound = new Howl({
+    src: ['resources/sounds/' + sound_name],
+    loop: do_loop,
+  });
+  
+  sound.once('load', function(){
+    sound.play();
+  });
+
+  sound.once('end', function(){
+    if (!sound.loop()){
+      sound.unload();
+    }
+  });
   sound.play();
-});
+  sounds[sound_name] = sound;
+}
+
+function stop_sound(sound_name, fade=false){
+  if (!fade){
+    sounds[sound_name].stop();
+    sounds[sound_name].unload();
+    delete sounds[sound_name];
+  } else {
+    sounds[sound_name].fade(1.0, 0.0, 1000.0);
+    sounds[sound_name].once('fade', function() {
+      sounds[sound_name].stop();
+      sounds[sound_name].unload();
+      delete sounds[sound_name];
+    })
+  }
+}
+
+//play_sound('subway-ambience-001.mp3', true);
 
 document.addEventListener('DOMContentLoaded', function() {
+  const body = document.getElementsByTagName('body')[0];
+  body.style.opacity = "1.0";
   const navbar = document.getElementById('navbarColor02');
   const navBarToggleButton = document.getElementById('navbarToggleButton');
   navBarToggleButton.addEventListener('click', () => {
