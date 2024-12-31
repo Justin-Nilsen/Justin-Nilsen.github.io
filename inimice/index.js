@@ -67,7 +67,7 @@ ipcMain.handle('show-save-dialog', async (event, storyName, jsonData, jsonJS = {
 
 app.whenReady().then(() => {
 
-    //const client = steamworks.init(480);
+    //const client = steamworks.init(3432010);
     //steamworks.electronEnableSteamOverlay();
 
     // INIMIS

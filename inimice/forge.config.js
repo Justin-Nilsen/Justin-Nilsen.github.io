@@ -6,7 +6,7 @@ module.exports = {
     asar: {
       unpackDir: "node_modules/steamworks.js/dist/**/*"
     },
-    icon: 'images/book' // no file extension required
+    icon: 'bin/images/book2' // no file extension required
   },
   rebuildConfig: {},
   makers: [
