@@ -117,10 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
         e.touches[0].clientX - e.touches[1].clientX,
         e.touches[0].clientY - e.touches[1].clientY
       );
-    } else {
-      startTouchX = e.touches[0].clientX;
-      startTouchY = e.touches[0].clientY;
     }
+    startTouchX = e.touches[0].clientX;
+    startTouchY = e.touches[0].clientY;
+    
   });
   
   document.addEventListener('touchmove', (e) => {
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     e.preventDefault();
   
-    if (e.touches.length === 2 && initialDistance) {
+    if (e.touches.length === 2) {
       const currentDistance = Math.hypot(
         e.touches[0].clientX - e.touches[1].clientX,
         e.touches[0].clientY - e.touches[1].clientY
@@ -137,15 +137,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const scale = currentDistance / initialDistance;
       const scaleFactor = scale < 1 ? 1.01 : 1 / 1.01;
 
-      scale = scale * Math.pow(scaleFactor, Math.abs(event.deltaY));
+      scale = scale * scaleFactor;// Math.pow(scaleFactor, Math.abs(event.deltaY));
       //canvasContainer.style.transformOrigin = `center`;
       updateScale();
     } else {
       let newX = e.touches[0].clientX - startTouchX;
       let newY = e.touches[0].clientY - startTouchY;
     
-      panX -= newX;
-      panY -= newY;
+      panX += newX;
+      panY += newY;
       updateScale();
     }
   });
