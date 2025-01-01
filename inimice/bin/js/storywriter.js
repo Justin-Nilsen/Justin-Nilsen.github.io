@@ -104,6 +104,55 @@ document.addEventListener('DOMContentLoaded', () => {
   
   canvasContainer.style.transformOrigin = `center`;
 
+  let isTouchDragging = false;
+  let startTouchX, startTouchY;
+  let initialDistance = null;
+
+
+  document.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    isTouchDragging = true;
+    if (e.touches.length === 2) {
+      initialDistance = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+    } else {
+      startTouchX = e.touches[0].clientX;
+      startTouchY = e.touches[0].clientY;
+    }
+  });
+  
+  document.addEventListener('touchmove', (e) => {
+    if (!isTouchDragging) return;
+  
+    e.preventDefault();
+  
+    if (e.touches.length === 2 && initialDistance) {
+      const currentDistance = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+
+      const scale = currentDistance / initialDistance;
+      const scaleFactor = scale < 1 ? 1.01 : 1 / 1.01;
+
+      scale = scale * Math.pow(scaleFactor, Math.abs(event.deltaY));
+      //canvasContainer.style.transformOrigin = `center`;
+      updateScale();
+    } else {
+      let newX = e.touches[0].clientX - startTouchX;
+      let newY = e.touches[0].clientY - startTouchY;
+    
+      panX -= newX;
+      panY -= newY;
+      updateScale();
+    }
+  });
+  
+  document.addEventListener('touchend', (e) => {
+    isTouchDragging = false;
+  });
 
   document.addEventListener('wheel', (event) => {
     event.preventDefault();

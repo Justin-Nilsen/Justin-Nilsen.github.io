@@ -22,6 +22,9 @@ const createWindow = () => {
     mainWindow.show();
     //win.maximize();
 
+    const userDataPath = app.getPath('userData');
+    console.log(userDataPath);
+
     mainWindow.loadFile('index.html')
 
     mainWindow.webContents.openDevTools()
@@ -39,7 +42,7 @@ ipcMain.handle('show-save-dialog', async (event, storyName, jsonData, jsonJS = {
 
     const fs = require('fs');
     fs.mkdir("bin/stories/" + storyName, (err) => {});
-    //fs.writeFileSync("bin/stories/" + storyName + "/" + storyName + ".json", jsonData, 'utf-8');
+    fs.writeFileSync("bin/stories/" + storyName + "/" + storyName + ".json", jsonData, 'utf-8');
     fs.writeFileSync("bin/stories/" + storyName + "/" + storyName + ".inimice", jsonJS, 'utf-8');
 
     /*

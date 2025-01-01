@@ -22,6 +22,7 @@
     "electron": "^33.2.1"
   },
   "dependencies": {
+    "electron-builder": "^25.1.8",
     "electron-squirrel-startup": "^1.0.1",
     "steamworks.js": "^0.4.0"
   }

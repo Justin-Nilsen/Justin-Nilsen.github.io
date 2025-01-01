@@ -289,8 +289,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function load_name_values_and_begin(event){
     event.preventDefault();
-    playerFirstName = first_name_input.value;
-    playerLastName = last_name_input.value;
+    let invalid = false;
+    if (first_name_input.value.trim() == ""){
+      first_name_input.classList.add('is-invalid');
+      invalid = true;
+    } else {
+      playerFirstName = first_name_input.value;
+    }
+
+    if (last_name_input.value.trim() == ""){
+      last_name_input.classList.add('is-invalid');
+      invalid = true;
+    } else {
+      playerLastName = last_name_input.value;
+    }
+
+    if (invalid){
+      return;
+    }
+
     gender = gender_selection.value;
     name_input_panel.style.display = "none";
     Begin();
