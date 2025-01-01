@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let isTouchDragging = false;
   let startTouchX, startTouchY;
-  let initialDistance = null;
+  let initialDistance = 1;
 
 
   document.addEventListener('touchstart', (e) => {
@@ -134,8 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
         e.touches[0].clientY - e.touches[1].clientY
       );
 
-      const scale = currentDistance / initialDistance;
-      const scaleFactor = scale < 1 ? 1.01 : 1 / 1.01;
+      const thisScale = currentDistance / initialDistance;
+      const scaleFactor = thisScale < 1 ? 1.01 : 1 / 1.01;
 
       scale = scale * scaleFactor;// Math.pow(scaleFactor, Math.abs(event.deltaY));
       //canvasContainer.style.transformOrigin = `center`;
@@ -143,6 +143,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       let newX = e.touches[0].clientX - startTouchX;
       let newY = e.touches[0].clientY - startTouchY;
+
+      startTouchX = e.touches[0].clientX;
+      startTouchY = e.touches[0].clientY;
     
       panX += newX;
       panY += newY;
