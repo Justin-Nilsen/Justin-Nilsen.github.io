@@ -118,8 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
         e.touches[0].clientY - e.touches[1].clientY
       );
     }
+    /*
     startTouchX = e.touches[0].clientX;
     startTouchY = e.touches[0].clientY;
+    */
     
   });
   
@@ -141,6 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
       //canvasContainer.style.transformOrigin = `center`;
       updateScale();
     } else {
+      /*
       let newX = e.touches[0].clientX - startTouchX;
       let newY = e.touches[0].clientY - startTouchY;
 
@@ -150,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
       panX += newX;
       panY += newY;
       updateScale();
+      */
     }
   });
   
@@ -679,7 +683,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('mousedown', (e) => {
 
-      if (e.target.id !== 'svgCanvas' && e.target.id !== 'canvasContainerContainer') {
+      console.log(e.target);
+      if (e.target.id !== 'svgCanvas' && e.target.id !== 'grid_background' && e.target.id !== 'canvasContainerContainer') {
         // Do not start drag if clicking inside textarea, input, or button
         return;
       }
@@ -1079,7 +1084,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <path d="M 25 0 L 0 0 0 25" fill="none" stroke="#2e2e2e" stroke-width="1" />
         </pattern>
       </defs>
-      <rect x=-25000 y=-25000 width="50000px" height="50000px" fill="url(#grid)" />
+      <rect id="grid_background" x=-25000 y=-25000 width="50000px" height="50000px" fill="url(#grid)" />
 
     `;
     canvasContainer.querySelectorAll('.block').forEach(block => block.remove()); // Remove blocks from DOM
