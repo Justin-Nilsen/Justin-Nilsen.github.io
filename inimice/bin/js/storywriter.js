@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   canvasContainer.style.transformOrigin = `center`;
 
+  /*
   let isTouchDragging = false;
   let startTouchX, startTouchY;
   let initialDistance = 1;
@@ -119,10 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
         e.touches[0].clientY - e.touches[1].clientY
       );
     }
-    /*
+    
     startTouchX = e.touches[0].clientX;
     startTouchY = e.touches[0].clientY;
-    */
+    
     
   });
   
@@ -144,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
       //canvasContainer.style.transformOrigin = `center`;
       updateScale();
     } else {
-      /*
+      
       let newX = e.touches[0].clientX - startTouchX;
       let newY = e.touches[0].clientY - startTouchY;
 
@@ -154,13 +155,14 @@ document.addEventListener('DOMContentLoaded', () => {
       panX += newX;
       panY += newY;
       updateScale();
-      */
+      
     }
   });
   
   document.addEventListener('touchend', (e) => {
     isTouchDragging = false;
   });
+  */
 
   document.addEventListener('wheel', (event) => {
     event.preventDefault();
@@ -719,7 +721,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function drag(e, touch=false) {
       if (isCanvasDragging) {
         const dx = ((touch ? e.touches[0].clientX : e.clientX) - startX) / scale; // Adjust for scale
-        const dy = ((touch ? e.touches[0].clientX : e.clientY) - startY) / scale; // Adjust for scale
+        const dy = ((touch ? e.touches[0].clienty : e.clientY) - startY) / scale; // Adjust for scale
 
         panX = initialX + dx;
         panY = initialY + dy;
