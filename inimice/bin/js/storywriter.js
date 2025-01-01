@@ -111,8 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('touchstart', (e) => {
     e.preventDefault();
-    isTouchDragging = true;
     if (e.touches.length === 2) {
+      isTouchDragging = true;
+
       initialDistance = Math.hypot(
         e.touches[0].clientX - e.touches[1].clientX,
         e.touches[0].clientY - e.touches[1].clientY
@@ -698,25 +699,41 @@ document.addEventListener('DOMContentLoaded', () => {
       document.addEventListener('mouseup', stopDrag);
     });
 
-    function drag(e) {
+    document.addEventListener('touchstart', (e) => {
+
+      console.log(e.target);
+      if (e.target.id !== 'svgCanvas' && e.target.id !== 'grid_background' && e.target.id !== 'canvasContainerContainer') {
+        // Do not start drag if clicking inside textarea, input, or button
+        return;
+      }
+      isCanvasDragging = true;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+
+      initialX = panX;
+      initialY = panY;
+      document.addEventListener('touchmove', (e) => drag(e, true));
+      document.addEventListener('touchend', (e) => stopDrag(e, true));
+    });
+
+    function drag(e, touch=false) {
       if (isCanvasDragging) {
-        const dx = (e.clientX - startX) / scale; // Adjust for scale
-        const dy = (e.clientY - startY) / scale; // Adjust for scale
+        const dx = ((touch ? e.touches[0].clientX : e.clientX) - startX) / scale; // Adjust for scale
+        const dy = ((touch ? e.touches[0].clientX : e.clientY) - startY) / scale; // Adjust for scale
 
         panX = initialX + dx;
         panY = initialY + dy;
 
         canvasContainer.style.transform = `scale(${scale}) translate(${panX}px, ${panY}px)`;
-
-        //svgCanvas.x = (initialX + dx) + 'px';
-        //svgCanvas.y = (initialY + dy) + 'px';
       }
     }
 
-    function stopDrag() {
+    function stopDrag(e, touch=false) {
       isCanvasDragging = false;
       document.removeEventListener('mousemove', drag);
       document.removeEventListener('mouseup', stopDrag);
+      document.removeEventListener('touchmove',  (e) => drag(e, true));
+      document.removeEventListener('touchend', (e) => stopDrag(e, true));
     }
   }
 
