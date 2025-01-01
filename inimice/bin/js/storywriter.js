@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   canvasContainer.style.transformOrigin = `center`;
 
-  /*
+  
   let isTouchDragging = false;
   let startTouchX, startTouchY;
   let initialDistance = 1;
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('touchend', (e) => {
     isTouchDragging = false;
   });
-  */
+  
 
   document.addEventListener('wheel', (event) => {
     event.preventDefault();
