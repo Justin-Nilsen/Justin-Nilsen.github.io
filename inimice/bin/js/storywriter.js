@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const thisScale = currentDistance / initialDistance;
       const scaleFactor = thisScale > 1 ? 1.05 : 1 / 1.05;
 
-      scale = scale * scaleFactor;// Math.pow(scaleFactor, Math.abs(event.deltaY));
+      scale = scale * thisScale;// Math.pow(scaleFactor, Math.abs(event.deltaY));
       //canvasContainer.style.transformOrigin = `center`;
       updateScale();
     } else {
