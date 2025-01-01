@@ -37,6 +37,7 @@ Set the font-family content used for the HTML content.
   
 
 body, html {
+    touch-action: none;
     margin: 0;
     padding: 0;
     overflow: hidden; /* Allow scrolling */
