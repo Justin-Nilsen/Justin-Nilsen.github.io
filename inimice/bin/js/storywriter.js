@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
   centerButton.addEventListener('click', () => {
     panX = 0;
     panY = 0;
+    scale = 1;
     updateScale();
   });
 
@@ -112,9 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('touchstart', (e) => {
     e.preventDefault();
-    if (e.touches.length === 2) {
-      isTouchDragging = true;
 
+    if (e.target.id !== 'svgCanvas' && e.target.id !== 'grid_background' && e.target.id !== 'canvasContainerContainer') {
+      // Do not start drag if clicking inside textarea, input, or button
+      return;
+    }
+
+    isTouchDragging = true;
+    if (e.touches.length === 2) {
       initialDistance = Math.hypot(
         e.touches[0].clientX - e.touches[1].clientX,
         e.touches[0].clientY - e.touches[1].clientY
@@ -138,11 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
         e.touches[0].clientY - e.touches[1].clientY
       );
 
-      const thisScale = currentDistance / initialDistance;
-      const scaleFactor = thisScale > 1 ? 1.05 : 1 / 1.05;
+      const scaleFactor = currentDistance / initialDistance;
+      initialDistance = currentDistance;
 
-      scale = scale * Math.pow(thisScale, 1/8);
-      //canvasContainer.style.transformOrigin = `center`;
+      scale = scale * scaleFactor;
       updateScale();
     } else {
       
@@ -152,8 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
       startTouchX = e.touches[0].clientX;
       startTouchY = e.touches[0].clientY;
     
-      panX += newX;
-      panY += newY;
+      panX += newX / scale;
+      panY += newY / scale;
       updateScale();
       
     }
@@ -701,23 +706,6 @@ document.addEventListener('DOMContentLoaded', () => {
       document.addEventListener('mouseup', stopDrag);
     });
 
-    document.addEventListener('touchstart', (e) => {
-
-      console.log(e.target);
-      if (e.target.id !== 'svgCanvas' && e.target.id !== 'grid_background' && e.target.id !== 'canvasContainerContainer') {
-        // Do not start drag if clicking inside textarea, input, or button
-        return;
-      }
-      isCanvasDragging = true;
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
-
-      initialX = panX;
-      initialY = panY;
-      document.addEventListener('touchmove', (e) => drag(e, true));
-      document.addEventListener('touchend', (e) => stopDrag(e, true));
-    });
-
     function drag(e, touch=false) {
       if (isCanvasDragging) {
         const dx = ((touch ? e.touches[0].clientX : e.clientX) - startX) / scale; // Adjust for scale
@@ -734,8 +722,6 @@ document.addEventListener('DOMContentLoaded', () => {
       isCanvasDragging = false;
       document.removeEventListener('mousemove', drag);
       document.removeEventListener('mouseup', stopDrag);
-      document.removeEventListener('touchmove',  (e) => drag(e, true));
-      document.removeEventListener('touchend', (e) => stopDrag(e, true));
     }
   }
 
@@ -761,6 +747,22 @@ document.addEventListener('DOMContentLoaded', () => {
       document.addEventListener('mouseup', stopDrag);
     });
 
+    element.addEventListener('touchstart', (e) => {
+
+      const block_element = e.target.closest('.block');
+      if (Boolean(event.target.closest('.textarea')) || block_element == null || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'BUTTON') {
+        // Do not start drag if clicking inside textarea, input, or button
+        return;
+      }
+      isDragging = true;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      initialX = parseInt(element.style.left, 10);
+      initialY = parseInt(element.style.top, 10);
+      document.addEventListener('touchmove', touchDrag);
+      document.addEventListener('touchend', stopTouchDrag);
+    });
+
     function drag(e) {
       if (isDragging) {
         const dx = (e.clientX - startX) / scale; // Adjust for scale
@@ -771,8 +773,38 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    function touchDrag(e) {
+      if (isDragging) {
+        const dx = (e.touches[0].clientX - startX) / scale; // Adjust for scale
+        const dy = (e.touches[0].clientY - startY) / scale; // Adjust for scale
+        element.style.left = (initialX + dx) + 'px';
+        element.style.top = (initialY + dy) + 'px';
+        updateLines(element);
+      }
+    }
+
+    function stopTouchDrag() {
+      isDragging = false;
+
+      document.removeEventListener('touchmove', touchDrag);
+      document.removeEventListener('touchend', stopTouchDrag);
+
+      // Update block position in data model
+      const blockId = element.dataset.blockId;
+      const blockData = blocksData.find(b => b.id == blockId);
+      if (blockData) {
+        blockData.position = {
+          x: parseInt(element.style.left, 10),
+          y: parseInt(element.style.top, 10),
+        };
+      }
+
+      updateCanvasSize(); // Adjust canvas size after dragging
+    }
+
     function stopDrag() {
       isDragging = false;
+
       document.removeEventListener('mousemove', drag);
       document.removeEventListener('mouseup', stopDrag);
 
