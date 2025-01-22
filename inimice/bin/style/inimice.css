@@ -2,6 +2,14 @@
     transition: 0.1s;
 }
 
+
+
+:root {
+    /* the only thing needed is a grainy/noisy background image */
+    --glitter: url("../resources/images/silver-glitter-background.png");
+}
+
+
 #revealed-container {
     max-height: 90vh;
     /*overflow-y: auto;*/
@@ -166,7 +174,6 @@
     padding-right: 25px;
 }
 
-
 #dialogButtons {
     min-height: 45vh;
     width: 100%;
@@ -178,6 +185,22 @@
 .navbar-toggler {
     pointer-events: all;
     background-color: #111111;
+}
+
+#bookFrame {
+    pointer-events: none;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    transition: 0.25s;
+    z-index: 899;
+    opacity: 0;
+    will-change: opacity;
+}
+
+#bookFrame.show{
+    opacity: 1.0;
+    pointer-events: all;
 }
 
 .navbar {

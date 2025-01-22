@@ -1,6 +1,17 @@
 
 const sounds = {};
 
+
+function closeIFrame() {
+  var bookFrame = document.getElementById('bookFrame');
+  if (bookFrame.classList.contains('show')){
+    bookFrame.classList.remove('show');
+  } else {
+    bookFrame.classList.add('show');
+  }
+  //$('#bookFrame').remove();
+}
+
 function play_sound(sound_name, do_loop=false){
   let sound;
 
@@ -45,11 +56,22 @@ document.addEventListener('DOMContentLoaded', function() {
   const navbar = document.getElementById('navbarColor02');
   const navBarToggleButton = document.getElementById('navbarToggleButton');
   navBarToggleButton.addEventListener('click', () => {
+    if (navbar.classList.contains('show')){
+      navbar.classList.remove('show');
+    } else {
+      navbar.classList.add('show');
+    }
+  });
+
+  
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
       if (navbar.classList.contains('show')){
-          navbar.classList.remove('show');
+        navbar.classList.remove('show');
       } else {
-          navbar.classList.add('show');
+        closeIFrame();
       }
+    }
   });
 });
 
@@ -362,13 +384,32 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   async function mainloop() {
+
+    // Get the start block's link
     currentBlockId = blocks[currentBlockId].linkTo;
+
+    // Loop
     while(true){
 
-      if (blocks[currentBlockId].blocktype == 1){
+      // Block 0 is a basic story block with dialog options
+      if (blocks[currentBlockId].blocktype == 0){
+
+        // Reveal the text; then, if there are options, wait for the user to pick one.
+        // Otherwise, go to the default link
+        await revealText(blocks[currentBlockId].text, 'revealed-container', readingSpeed);
+        if (blocks[currentBlockId].blocktype == 0 && blocks[currentBlockId].subBlocks.length > 0){
+          currentBlockId = await waitForButtonPress();
+        } else {
+          currentBlockId = blocks[currentBlockId].linkTo;
+        }
+      }
+      // Block 1 is an action block. Just executes some code.
+      else if (blocks[currentBlockId].blocktype == 1){
         eval(blocks[currentBlockId].text);
         currentBlockId = blocks[currentBlockId].linkTo;
       }
+
+      // Block 2 is a conditional block. Evaluates a boolean expression and chooses link 1 or 2 accordingly.
       else if (blocks[currentBlockId].blocktype == 2){
         let condition = eval(blocks[currentBlockId].text);
         if (condition){
@@ -377,15 +418,8 @@ document.addEventListener('DOMContentLoaded', function() {
           currentBlockId = blocks[currentBlockId].subBlocks[1].linkTo;
         }
       }
-      else if (blocks[currentBlockId].blocktype == 0){
-        await revealText(blocks[currentBlockId].text, 'revealed-container', readingSpeed);
-        if (blocks[currentBlockId].blocktype == 0 && blocks[currentBlockId].subBlocks.length > 0){
-          currentBlockId = await waitForButtonPress();
-        } else {
-          currentBlockId = blocks[currentBlockId].linkTo;
-        }
-      }
-
+      
+      // If at any point currentBlockId gets assigned to null, just return
       if (currentBlockId == null){
         return; 
       }
@@ -394,13 +428,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
   async function waitForButtonPress() {
     return new Promise((resolve) => {
+
       actualButtons.replaceChildren();
 
+      // Keep track of how many blocks we generate
       let blocksGenerated = 0;
+
+      // Iterate through the sub-blocks (dialog options)
       blocks[currentBlockId].subBlocks.forEach((subBlockData, index) => {
 
+        // First, check to see if the option has a condition. If so, evaluate it and display if true.
         let doShowSubblock = true;
-
         if (subBlockData.hasOwnProperty("condition") && subBlockData.condition.trim() !== ""){
           let condition = eval(subBlockData.condition);
           if (!condition){
@@ -410,9 +448,12 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         }
         
+        // Create the dialog button
         if (doShowSubblock){
-          const butt = document.createElement('button');
+          const butt = document.createElement('button'); // Heheh
           butt.classList.add("dialogButton");
+
+          // If the user clicks the butt, hide the dialog panel, set the new block ID, and resolve
           butt.addEventListener("click", function() {
             dialogOptionsPanel.style.display = 'none';
             currentBlockId = subBlockData.linkTo;
@@ -424,10 +465,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
 
+      // If we didn't generate any dialog options, go for the default
       if (blocksGenerated <= 0){
         currentBlockId = blocks[currentBlockId].linkTo;
         resolve(currentBlockId);
-      } else {
+      } 
+      // Otherwise, show the display panel
+      else {
         dialogOptionsPanel.style.display = 'block';
       }
     });
@@ -437,9 +481,26 @@ document.addEventListener('DOMContentLoaded', function() {
     return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   }
 
+  async function fetchChapter() {
+    const url = "../bin/stories/Chapter_1/Chapter_1.json";
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+  
+      const json = await response.text();
+      importFromJSON(json);
+      
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+
   function Begin(){
     readingSpeedSliderContainer.style.display = 'flex';
     readingSpeedSlider.value = speedIndex;
-    importFromJSON(decodeURIComponent(storyGraphData));
+    fetchChapter();
   }
 });

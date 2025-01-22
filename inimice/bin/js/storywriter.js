@@ -1076,11 +1076,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     wrapper = {data};
     const jsonData = JSON.stringify(wrapper, null, 2);
-    const jsonString = "var storyGraphData = \"" + encodeURIComponent(jsonData) + "\"";
+    //const jsonString = "var storyGraphData = \"" + encodeURIComponent(jsonData) + "\"";
 
     try {
       const { ipcRenderer } = require('electron');
-      ipcRenderer.invoke('show-save-dialog', title, jsonData, jsonString);
+      ipcRenderer.invoke('show-save-dialog', title, jsonData);
       return;
     } catch {}
 
@@ -1095,7 +1095,7 @@ document.addEventListener('DOMContentLoaded', () => {
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
     
-
+    /*
     const dataStrJavascript = "data:text/javascript;charset=utf-8," + encodeURIComponent(jsonString);
     const downloadAnchorNodeJavascript = document.createElement('a');
     downloadAnchorNodeJavascript.setAttribute("href", dataStrJavascript);
@@ -1103,6 +1103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(downloadAnchorNodeJavascript); // required for firefox
     downloadAnchorNodeJavascript.click();
     downloadAnchorNodeJavascript.remove();
+    */
   }
 
   function updateAllLines() {

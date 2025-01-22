@@ -38,12 +38,12 @@ const createWindow = () => {
 }
 
 // Listen for the "show-save-dialog" event from the renderer
-ipcMain.handle('show-save-dialog', async (event, storyName, jsonData, jsonJS = {}) => {
+ipcMain.handle('show-save-dialog', async (event, storyName, jsonData) => {
 
     const fs = require('fs');
     fs.mkdir("bin/stories/" + storyName, (err) => {});
     fs.writeFileSync("bin/stories/" + storyName + "/" + storyName + ".json", jsonData, 'utf-8');
-    fs.writeFileSync("bin/stories/" + storyName + "/" + storyName + ".inimice", jsonJS, 'utf-8');
+    //fs.writeFileSync("bin/stories/" + storyName + "/" + storyName + ".inimice", jsonJS, 'utf-8');
 
     /*
     // Options for the save dialog
@@ -70,8 +70,11 @@ ipcMain.handle('show-save-dialog', async (event, storyName, jsonData, jsonJS = {
 
 app.whenReady().then(() => {
 
-    //const client = steamworks.init(3432010);
-    //steamworks.electronEnableSteamOverlay();
+    /*
+    const client = steamworks.init(3432010);
+    steamworks.electronEnableSteamOverlay();
+    console.log(client.localplayer.getName())
+    */
 
     // INIMIS
     // DUNIMIS
@@ -83,8 +86,6 @@ app.whenReady().then(() => {
 
     // You can pass an appId, or don't pass anything and use a steam_appid.txt file
 
-    // Print Steam username
-    //console.log(client.localplayer.getName())
     console.log(app.getPath('userData'));
 
     // Tries to activate an achievement
@@ -93,7 +94,7 @@ app.whenReady().then(() => {
     //}
 
     app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
+        if (BrowserWindow.getAllWindows().length === 0) createWindow()
     })
 })
 
