@@ -231,6 +231,18 @@ body {
     transition: 1s;
 }
 
+.highlight {
+    display: inline;
+    background-image: url(../resources/images/highlight.png);
+    /*background: linear-gradient(135deg, yellow, yellow),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path fill="yellow" d="M0 6q10 -4 20 -1.5t20 1.5q10 3 20 0t20 -3q10 -1 20 3v10H0z"/></svg>');
+    
+    */
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 0 5px;
+  }
+
 .nav-item{
     margin: auto;
     font-family: 'LinLibertine_R';
